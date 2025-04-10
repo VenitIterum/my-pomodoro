@@ -1,0 +1,10 @@
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my-pomodoro.csproj.AssemblyReference.cache
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my_pomodoro.Properties.Resources.resources
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my-pomodoro.csproj.GenerateResource.cache
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my-pomodoro.csproj.CoreCompileInputs.cache
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my_pomodoro.TimerScreenForm.resources
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\my-pomodoro.exe.config
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\my-pomodoro.exe
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\my-pomodoro.pdb
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my-pomodoro.exe
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my-pomodoro.pdb
