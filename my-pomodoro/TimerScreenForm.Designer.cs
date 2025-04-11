@@ -28,89 +28,104 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.Timer = new System.Windows.Forms.Label();
+            this.ActualTime = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.ReplayButton = new System.Windows.Forms.PictureBox();
+            this.PauseButton = new System.Windows.Forms.PictureBox();
+            this.PlayButton = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ReplayButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PauseButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // Timer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(12, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 95);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "00:00";
+            this.Timer.AutoSize = true;
+            this.Timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Timer.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Timer.Location = new System.Drawing.Point(12, 24);
+            this.Timer.Name = "Timer";
+            this.Timer.Size = new System.Drawing.Size(251, 95);
+            this.Timer.TabIndex = 0;
+            this.Timer.Text = "00:00";
             // 
-            // label2
+            // ActualTime
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(279, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 39);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Now:";
+            this.ActualTime.AutoSize = true;
+            this.ActualTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ActualTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ActualTime.Location = new System.Drawing.Point(269, 24);
+            this.ActualTime.Name = "ActualTime";
+            this.ActualTime.Size = new System.Drawing.Size(102, 39);
+            this.ActualTime.TabIndex = 2;
+            this.ActualTime.Text = "00:00";
             // 
-            // label3
+            // timer1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(371, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 39);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "00:00";
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
+            // timer2
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(274, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 50);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "▶";
-            this.button1.UseVisualStyleBackColor = false;
+            this.timer2.Enabled = true;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // button2
+            // ReplayButton
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(352, 82);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 50);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "❚❚";
-            this.button2.UseVisualStyleBackColor = false;
+            this.ReplayButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ReplayButton.BackgroundImage = global::my_pomodoro.Properties.Resources.replay;
+            this.ReplayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ReplayButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReplayButton.InitialImage = null;
+            this.ReplayButton.Location = new System.Drawing.Point(439, 82);
+            this.ReplayButton.Name = "ReplayButton";
+            this.ReplayButton.Size = new System.Drawing.Size(50, 50);
+            this.ReplayButton.TabIndex = 9;
+            this.ReplayButton.TabStop = false;
+            this.ReplayButton.Click += new System.EventHandler(this.ReplayButton_Click);
             // 
-            // button3
+            // PauseButton
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(432, 82);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 50);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "⟲";
-            this.button3.UseVisualStyleBackColor = false;
+            this.PauseButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.PauseButton.BackgroundImage = global::my_pomodoro.Properties.Resources.pause;
+            this.PauseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PauseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PauseButton.InitialImage = null;
+            this.PauseButton.Location = new System.Drawing.Point(354, 82);
+            this.PauseButton.Name = "PauseButton";
+            this.PauseButton.Size = new System.Drawing.Size(50, 50);
+            this.PauseButton.TabIndex = 8;
+            this.PauseButton.TabStop = false;
+            this.PauseButton.Click += new System.EventHandler(this.PauseButton_Click);
+            // 
+            // PlayButton
+            // 
+            this.PlayButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.PlayButton.BackgroundImage = global::my_pomodoro.Properties.Resources.play_button_arrowhead;
+            this.PlayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PlayButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PlayButton.InitialImage = null;
+            this.PlayButton.Location = new System.Drawing.Point(269, 82);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(50, 50);
+            this.PlayButton.TabIndex = 7;
+            this.PlayButton.TabStop = false;
+            this.PlayButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayButton_MouseClick);
             // 
             // closeButton
             // 
-            this.closeButton.InitialImage = global::my_pomodoro.Properties.Resources.close_icon;
+            this.closeButton.BackgroundImage = global::my_pomodoro.Properties.Resources.close;
+            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.InitialImage = null;
             this.closeButton.Location = new System.Drawing.Point(508, 12);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(30, 30);
-            this.closeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.closeButton.TabIndex = 6;
             this.closeButton.TabStop = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
@@ -119,18 +134,25 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(550, 144);
+            this.Controls.Add(this.ReplayButton);
+            this.Controls.Add(this.PauseButton);
+            this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.closeButton);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ActualTime);
+            this.Controls.Add(this.Timer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TimerScreenForm";
             this.Text = "TimerScreenForm";
+            this.Load += new System.EventHandler(this.TimerScreenForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimerScreenForm_MouseDown);
+            this.MouseEnter += new System.EventHandler(this.TimerScreenForm_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.TimerScreenForm_MouseLeave);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TimerScreenForm_MouseMove);
+            ((System.ComponentModel.ISupportInitialize)(this.ReplayButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PauseButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -139,12 +161,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label Timer;
+        private System.Windows.Forms.Label ActualTime;
         private System.Windows.Forms.PictureBox closeButton;
+        private System.Windows.Forms.PictureBox PlayButton;
+        private System.Windows.Forms.PictureBox PauseButton;
+        private System.Windows.Forms.PictureBox ReplayButton;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
