@@ -73,19 +73,9 @@ namespace my_pomodoro.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_2 {
+        internal static System.Drawing.Bitmap close_active {
             get {
-                object obj = ResourceManager.GetObject("close_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap close_icon {
-            get {
-                object obj = ResourceManager.GetObject("close-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("close_active", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +106,26 @@ namespace my_pomodoro.Properties {
         internal static System.Drawing.Bitmap replay {
             get {
                 object obj = ResourceManager.GetObject("replay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings {
+            get {
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_active {
+            get {
+                object obj = ResourceManager.GetObject("settings_active", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -8,3 +8,4 @@ D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\my-pomodoro.exe
 D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\my-pomodoro.pdb
 D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my-pomodoro.exe
 D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my-pomodoro.pdb
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my_pomodoro.SettingsForm.resources

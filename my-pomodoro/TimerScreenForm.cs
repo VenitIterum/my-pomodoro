@@ -1,24 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
+using my_pomodoro.Properties;
 
 namespace my_pomodoro
 {
     public partial class TimerScreenForm : Form
     {
         private Point lastPoint = new Point();
-        private Stopwatch timer;
-        private Stopwatch userValue;
-
-        private Timer timerReally = new Timer();
+        private TimeSpan timerSpan;
+        private int userTimeForWork = 30;
 
         public TimerScreenForm()
         {
@@ -27,10 +20,11 @@ namespace my_pomodoro
 
         private void TimerScreenForm_Load(object sender, EventArgs e)
         {
-            timer = new Stopwatch();
-            userValue = new Stopwatch();
-
-            timerReally.Enabled = false;
+            timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            timer1.Stop();
+            Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -62,35 +56,96 @@ namespace my_pomodoro
             this.BackColor = Color.DimGray;
         }
 
+        private void closeButton_MouseEnter(object sender, EventArgs e)
+        {
+            closeButton.Image = Resources.close_active;
+        }
+
+        private void closeButton_MouseLeave(object sender, EventArgs e)
+        {
+            closeButton.Image = Resources.close;
+        }
+
+        private void PlayButton_MouseEnter(object sender, EventArgs e)
+        {
+            PlayButton.BackColor = Color.LightGray;
+        }
+
+        private void PlayButton_MouseLeave(object sender, EventArgs e)
+        {
+            PlayButton.BackColor = Color.White;
+        }
+
+        private void PauseButton_MouseEnter(object sender, EventArgs e)
+        {
+            PauseButton.BackColor = Color.LightGray;
+        }
+
+        private void PauseButton_MouseLeave(object sender, EventArgs e)
+        {
+            PauseButton.BackColor = Color.White;
+        }
+
+        private void ReplayButton_MouseEnter(object sender, EventArgs e)
+        {
+            ReplayButton.BackColor = Color.LightGray;
+        }
+
+        private void ReplayButton_MouseLeave(object sender, EventArgs e)
+        {
+            ReplayButton.BackColor = Color.White;
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
+        }
+
+        private void SettingsButton_MouseEnter(object sender, EventArgs e)
+        {
+            SettingsButton.Image = Resources.settings_active;
+        }
+
+        private void SettingsButton_MouseLeave(object sender, EventArgs e)
+        {
+            SettingsButton.Image = Resources.settings;
+        }
+
         private void PlayButton_MouseClick(object sender, MouseEventArgs e)
         {
-            //timer.Start();
-            timerReally.Enabled = true;
-            timerReally.Interval = 10000;
-            timerReally.Start();
+            timer1.Start();
         }
 
         private void PauseButton_Click(object sender, EventArgs e)
         {
-            //timer.Stop();
-            timerReally.Stop();
+            timer1.Stop();
         }
 
         private void ReplayButton_Click(object sender, EventArgs e)
         {
-            timer.Reset();
-            this.Timer.Text = string.Format("{0:mm\\:ss}", timerReally);
+            timer1.Stop();
+            timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+            Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //this.Timer.Text = string.Format("{0:mm\\:ss}", timerReally.Interval);
-            this.Timer.Text = timerReally.ToString();
+            if (timerSpan.TotalSeconds > 0)
+            {
+                timerSpan = timerSpan.Subtract(TimeSpan.FromSeconds(0.5));
+                Timer.Text = timerSpan.ToString(@"mm\:ss");
+            }
+            else
+            {
+                timer1.Stop();
+                Timer.Text = "Time's up!";
+            }
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            this.ActualTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now);
+            ActualTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now);
         }
     }
 }
