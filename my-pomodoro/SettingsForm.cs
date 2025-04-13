@@ -19,10 +19,12 @@ namespace my_pomodoro
         public SettingsForm()
         {
             InitializeComponent();
+            ProductVersionLabel.Text = Application.ProductVersion;
         }
 
         private void CloseSettingsButton_Click(object sender, EventArgs e)
         {
+            //Save settings
             this.Close();
         }
 

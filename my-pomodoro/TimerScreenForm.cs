@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
@@ -11,7 +9,9 @@ namespace my_pomodoro
     {
         private Point lastPoint = new Point();
         private TimeSpan timerSpan;
-        private int userTimeForWork = 30;
+        private int userTimeForWork = 55 * 60;
+        private int userTimeForFree = 5 * 60;
+        private bool IsTimeStatus = true;
 
         public TimerScreenForm()
         {
@@ -20,10 +20,21 @@ namespace my_pomodoro
 
         private void TimerScreenForm_Load(object sender, EventArgs e)
         {
-            timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+            if (true)
+            {
+                userTimeForWork = 55 * 60;
+                userTimeForFree = 5 * 60;
+            }
+            else
+            {
+                //Создаём файл
+            }
+
+                timerSpan = TimeSpan.FromSeconds(userTimeForWork);
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             timer1.Stop();
+            Timer.ForeColor = Color.Tomato;
             Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
 
@@ -96,6 +107,16 @@ namespace my_pomodoro
             ReplayButton.BackColor = Color.White;
         }
 
+        private void SwapButton_MouseEnter(object sender, EventArgs e)
+        {
+            SwapButton.BackColor = Color.LightGray;
+        }
+
+        private void SwapButton_MouseLeave(object sender, EventArgs e)
+        {
+            SwapButton.BackColor = Color.White;
+        }
+
         private void SettingsButton_Click(object sender, EventArgs e)
         {
             SettingsForm settingsForm = new SettingsForm();
@@ -125,13 +146,34 @@ namespace my_pomodoro
         private void ReplayButton_Click(object sender, EventArgs e)
         {
             timer1.Stop();
-            timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+
+            if (IsTimeStatus) timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+            else timerSpan = TimeSpan.FromSeconds(userTimeForFree);
+
+            Timer.Text = timerSpan.ToString(@"mm\:ss");
+        }
+
+        private void SwapButton_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            if (IsTimeStatus)
+            {
+                IsTimeStatus = false;
+                Timer.ForeColor = Color.LightGreen;
+                timerSpan = TimeSpan.FromSeconds(userTimeForFree);
+            }
+            else
+            {
+                IsTimeStatus = true;
+                Timer.ForeColor = Color.Tomato;
+                timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+            }
             Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (timerSpan.TotalSeconds > 0)
+            if (timerSpan.TotalSeconds > 0.5)
             {
                 timerSpan = timerSpan.Subtract(TimeSpan.FromSeconds(0.5));
                 Timer.Text = timerSpan.ToString(@"mm\:ss");
@@ -139,7 +181,19 @@ namespace my_pomodoro
             else
             {
                 timer1.Stop();
-                Timer.Text = "Time's up!";
+                if (IsTimeStatus)
+                {
+                    IsTimeStatus = false;
+                    Timer.ForeColor = Color.LightGreen;
+                    timerSpan = TimeSpan.FromSeconds(userTimeForFree);
+                }
+                else
+                {
+                    IsTimeStatus = true;
+                    Timer.ForeColor = Color.Tomato;
+                    timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+                }
+                Timer.Text = timerSpan.ToString(@"mm\:ss");
             }
         }
 
