@@ -33,7 +33,7 @@
             this.ProductVersionLabel = new System.Windows.Forms.Label();
             this.Verson = new System.Windows.Forms.Label();
             this.textBoxWork = new System.Windows.Forms.TextBox();
-            this.textBoxFree = new System.Windows.Forms.TextBox();
+            this.textBoxRest = new System.Windows.Forms.TextBox();
             this.labelWork = new System.Windows.Forms.Label();
             this.labelFree = new System.Windows.Forms.Label();
             this.labelMinWork = new System.Windows.Forms.Label();
@@ -101,14 +101,14 @@
             this.textBoxWork.TabIndex = 4;
             this.textBoxWork.Text = "55";
             // 
-            // textBoxFree
+            // textBoxRest
             // 
-            this.textBoxFree.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxFree.Location = new System.Drawing.Point(109, 114);
-            this.textBoxFree.Name = "textBoxFree";
-            this.textBoxFree.Size = new System.Drawing.Size(71, 30);
-            this.textBoxFree.TabIndex = 5;
-            this.textBoxFree.Text = "5";
+            this.textBoxRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxRest.Location = new System.Drawing.Point(109, 114);
+            this.textBoxRest.Name = "textBoxRest";
+            this.textBoxRest.Size = new System.Drawing.Size(71, 30);
+            this.textBoxRest.TabIndex = 5;
+            this.textBoxRest.Text = "5";
             // 
             // labelWork
             // 
@@ -168,7 +168,7 @@
             this.Controls.Add(this.labelMinWork);
             this.Controls.Add(this.labelFree);
             this.Controls.Add(this.labelWork);
-            this.Controls.Add(this.textBoxFree);
+            this.Controls.Add(this.textBoxRest);
             this.Controls.Add(this.textBoxWork);
             this.Controls.Add(this.Verson);
             this.Controls.Add(this.ProductVersionLabel);
@@ -177,6 +177,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseDown);
             this.MouseEnter += new System.EventHandler(this.SettingsForm_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.SettingsForm_MouseLeave);
@@ -194,7 +195,7 @@
         private System.Windows.Forms.Label ProductVersionLabel;
         private System.Windows.Forms.Label Verson;
         private System.Windows.Forms.TextBox textBoxWork;
-        private System.Windows.Forms.TextBox textBoxFree;
+        private System.Windows.Forms.TextBox textBoxRest;
         private System.Windows.Forms.Label labelWork;
         private System.Windows.Forms.Label labelFree;
         private System.Windows.Forms.Label labelMinWork;

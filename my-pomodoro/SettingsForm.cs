@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
 
@@ -14,6 +7,8 @@ namespace my_pomodoro
 {
     public partial class SettingsForm : Form
     {
+        SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
+
         Point lastPoint = new Point();
 
         public SettingsForm()
@@ -22,9 +17,20 @@ namespace my_pomodoro
             ProductVersionLabel.Text = Application.ProductVersion;
         }
 
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+            string[] userMinutes = saveAndLoadDataToFile.LoadDataFromFile().Split(',');
+
+            if (userMinutes != null)
+            {
+                textBoxWork.Text = userMinutes[0];//load work time
+                textBoxRest.Text = userMinutes[1];//load rest time
+            }
+        }
+
         private void CloseSettingsButton_Click(object sender, EventArgs e)
         {
-            //Save settings
+            saveAndLoadDataToFile.UpdateTimesOfTimer(textBoxWork.Text, textBoxRest.Text);
             this.Close();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
 
@@ -7,11 +8,13 @@ namespace my_pomodoro
 {
     public partial class TimerScreenForm : Form
     {
+        public static int userTimeForWork = 55 * 60;
+        public static int userTimeForRest = 5 * 60;
+
         private Point lastPoint = new Point();
         private TimeSpan timerSpan;
-        private int userTimeForWork = 55 * 60;
-        private int userTimeForFree = 5 * 60;
         private bool IsTimeStatus = true;
+        private SoundPlayer soundPlayer = new SoundPlayer();
 
         public TimerScreenForm()
         {
@@ -20,17 +23,18 @@ namespace my_pomodoro
 
         private void TimerScreenForm_Load(object sender, EventArgs e)
         {
-            if (true)
+            SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
+            string[] userMinutes = saveAndLoadDataToFile.LoadDataFromFile().Split(',');
+
+            if (saveAndLoadDataToFile.FileExists())
             {
-                userTimeForWork = 55 * 60;
-                userTimeForFree = 5 * 60;
-            }
-            else
-            {
-                //Создаём файл
+                userTimeForWork = Convert.ToInt32(userMinutes[0]) * 60;
+                userTimeForRest = Convert.ToInt32(userMinutes[1]) * 60;
             }
 
-                timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+            soundPlayer.SoundLocation = "endTime.wav";
+
+            timerSpan = TimeSpan.FromSeconds(userTimeForWork);
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             timer1.Stop();
@@ -148,7 +152,7 @@ namespace my_pomodoro
             timer1.Stop();
 
             if (IsTimeStatus) timerSpan = TimeSpan.FromSeconds(userTimeForWork);
-            else timerSpan = TimeSpan.FromSeconds(userTimeForFree);
+            else timerSpan = TimeSpan.FromSeconds(userTimeForRest);
 
             Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
@@ -160,7 +164,7 @@ namespace my_pomodoro
             {
                 IsTimeStatus = false;
                 Timer.ForeColor = Color.LightGreen;
-                timerSpan = TimeSpan.FromSeconds(userTimeForFree);
+                timerSpan = TimeSpan.FromSeconds(userTimeForRest);
             }
             else
             {
@@ -181,11 +185,12 @@ namespace my_pomodoro
             else
             {
                 timer1.Stop();
+                soundPlayer.Play();
                 if (IsTimeStatus)
                 {
                     IsTimeStatus = false;
                     Timer.ForeColor = Color.LightGreen;
-                    timerSpan = TimeSpan.FromSeconds(userTimeForFree);
+                    timerSpan = TimeSpan.FromSeconds(userTimeForRest);
                 }
                 else
                 {
