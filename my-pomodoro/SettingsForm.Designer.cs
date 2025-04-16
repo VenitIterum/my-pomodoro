@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.CloseSettingsButton = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ProductVersionLabel = new System.Windows.Forms.Label();
@@ -175,12 +176,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CloseSettingsButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingsForm";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseDown);
-            this.MouseEnter += new System.EventHandler(this.SettingsForm_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.SettingsForm_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).EndInit();
             this.ResumeLayout(false);

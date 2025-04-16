@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimerScreenForm));
             this.Timer = new System.Windows.Forms.Label();
             this.ActualTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -40,6 +41,9 @@
             this.PauseButton = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.PictureBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.EndTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SwapButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReplayButton)).BeginInit();
@@ -195,12 +199,45 @@
             this.closeButton.MouseEnter += new System.EventHandler(this.closeButton_MouseEnter);
             this.closeButton.MouseLeave += new System.EventHandler(this.closeButton_MouseLeave);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "My POMODORO";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(319, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Время окончания";
+            // 
+            // EndTime
+            // 
+            this.EndTime.AutoSize = true;
+            this.EndTime.BackColor = System.Drawing.Color.Transparent;
+            this.EndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EndTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.EndTime.Location = new System.Drawing.Point(316, 45);
+            this.EndTime.Name = "EndTime";
+            this.EndTime.Size = new System.Drawing.Size(102, 39);
+            this.EndTime.TabIndex = 13;
+            this.EndTime.Text = "00:00";
+            // 
             // TimerScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(550, 170);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.EndTime);
             this.Controls.Add(this.SwapButton);
             this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.ActualTimeLabel);
@@ -211,13 +248,13 @@
             this.Controls.Add(this.ActualTime);
             this.Controls.Add(this.Timer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TimerScreenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TimerScreenForm";
             this.Load += new System.EventHandler(this.TimerScreenForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TimerScreenForm_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimerScreenForm_MouseDown);
-            this.MouseEnter += new System.EventHandler(this.TimerScreenForm_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.TimerScreenForm_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TimerScreenForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.SwapButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).EndInit();
@@ -243,5 +280,8 @@
         private System.Windows.Forms.Label ActualTimeLabel;
         private System.Windows.Forms.PictureBox SettingsButton;
         private System.Windows.Forms.PictureBox SwapButton;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label EndTime;
     }
 }

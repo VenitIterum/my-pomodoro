@@ -8,10 +8,10 @@ namespace my_pomodoro
     {
         private string filePath = "UserSettings.txt";
 
-        internal void UpdateTimesOfTimer(string workTime, string restTime)
+        internal void UpdateTimesOfTimer(int workTime, int restTime)
         {
-            TimerScreenForm.userTimeForWork = Convert.ToInt32(workTime) * 60;
-            TimerScreenForm.userTimeForRest = Convert.ToInt32(restTime) * 60;
+            TimerScreenForm.userTimeForWork = workTime * 60;
+            TimerScreenForm.userTimeForRest = restTime * 60;
 
             SaveDataToFile(workTime + "," + restTime);
         }
