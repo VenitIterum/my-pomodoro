@@ -9,14 +9,16 @@ namespace my_pomodoro
 {
     public partial class TimerScreenForm : Form
     {
-        public static int userTimeForWork = 55 * 60;
-        public static int userTimeForRest = 5 * 60;
+        public const int SecondsInOneMinute = 60;
 
-        private Point lastPoint = new Point();
-        private TimeSpan timerSpan;
+        public static int userTimeForWork = 55 * SecondsInOneMinute;
+        public static int userTimeForRest = 5 * SecondsInOneMinute;
+
         private bool IsTimeStatusWork = true;
         private bool IsTimer1MustBlink = false;
         private SoundPlayer soundTimerEnd = new SoundPlayer("endTimeBell.wav");
+        private Point lastPoint = new Point();
+        private TimeSpan timerSpan;
 
         public TimerScreenForm()
         {
@@ -30,22 +32,22 @@ namespace my_pomodoro
 
             if (saveAndLoadDataToFile.FileExists())
             {
-                userTimeForWork = Convert.ToInt32(userMinutes[0]) * 60;
-                userTimeForRest = Convert.ToInt32(userMinutes[1]) * 60;
+                userTimeForWork = Convert.ToInt32(userMinutes[0]) * SecondsInOneMinute;
+                userTimeForRest = Convert.ToInt32(userMinutes[1]) * SecondsInOneMinute;
             }
 
             timerSpan = TimeSpan.FromSeconds(userTimeForWork);
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             timer1.Stop();
+
             Timer.ForeColor = Color.Tomato;
             Timer.Text = timerSpan.ToString(@"mm\:ss");
+
+            EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForWork));
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        #region === Main form drag logic ===
 
         private void TimerScreenForm_MouseMove(object sender, MouseEventArgs e)
         {
@@ -60,6 +62,10 @@ namespace my_pomodoro
         {
             lastPoint = new Point(e.X, e.Y);
         }
+
+        #endregion
+
+        #region === Enter/Leave cursor on buttons ===
 
         private void closeButton_MouseEnter(object sender, EventArgs e)
         {
@@ -111,12 +117,6 @@ namespace my_pomodoro
             SwapButton.BackColor = Color.White;
         }
 
-        private void SettingsButton_Click(object sender, EventArgs e)
-        {
-            SettingsForm settingsForm = new SettingsForm();
-            settingsForm.ShowDialog();
-        }
-
         private void SettingsButton_MouseEnter(object sender, EventArgs e)
         {
             SettingsButton.Image = Resources.settings_active;
@@ -127,32 +127,108 @@ namespace my_pomodoro
             SettingsButton.Image = Resources.settings;
         }
 
+        #endregion
+
+        #region === MouseClick logic for buttons ===
+
         private void PlayButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            StartTimer();
+        }
+
+        private void PauseButton_Click(object sender, EventArgs e)
+        {
+            StopTimer();
+        }
+
+        private void ReplayButton_Click(object sender, EventArgs e)
+        {
+            ReplayTimer();
+        }
+
+        private void SwapButton_Click(object sender, EventArgs e)
+        {
+            SwapTimer();
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
+        }
+
+        #endregion
+
+        #region === Hotkeys ===
+
+        private void TimerScreenForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                if (!timer1.Enabled)
+                {
+                    StartTimer();
+                }
+                else
+                {
+                    StopTimer();
+                }
+            }
+
+            if (e.KeyCode == Keys.R)
+            {
+                ReplayTimer();
+            }
+
+            if (e.KeyCode == Keys.B)
+            {
+                SwapTimer();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Visible = false;
+            }
+        }
+
+        #endregion
+
+        #region === Realization for logic buttons ===
+
+        private void StartTimer()
         {
             timer1.Start();
             IsTimer1MustBlink = false;
             this.Visible = false;
         }
 
-        private void PauseButton_Click(object sender, EventArgs e)
+        private void StopTimer()
         {
             timer1.Stop();
             IsTimer1MustBlink = true;
             Blink();
         }
 
-        private void ReplayButton_Click(object sender, EventArgs e)
+        private void ReplayTimer()
         {
             timer1.Stop();
             IsTimer1MustBlink = false;
 
-            if (IsTimeStatusWork) timerSpan = TimeSpan.FromSeconds(userTimeForWork);
-            else timerSpan = TimeSpan.FromSeconds(userTimeForRest);
+            if (IsTimeStatusWork)
+            {
+                timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+                EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForWork));
+            }
+            else
+            {
+                timerSpan = TimeSpan.FromSeconds(userTimeForRest);
+                EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForRest));
+            }
 
             Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
 
-        private void SwapButton_Click(object sender, EventArgs e)
+        private void SwapTimer()
         {
             timer1.Stop();
             IsTimer1MustBlink = false;
@@ -162,15 +238,21 @@ namespace my_pomodoro
                 IsTimeStatusWork = false;
                 Timer.ForeColor = Color.LightGreen;
                 timerSpan = TimeSpan.FromSeconds(userTimeForRest);
+                EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForRest));
             }
             else
             {
                 IsTimeStatusWork = true;
                 Timer.ForeColor = Color.Tomato;
                 timerSpan = TimeSpan.FromSeconds(userTimeForWork);
+                EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForWork));
             }
             Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
+
+        #endregion
+
+        #region === Timers tick methods ===
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -207,13 +289,13 @@ namespace my_pomodoro
         private void timer2_Tick(object sender, EventArgs e)
         {
             ActualTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now);
+            if (!timer1.Enabled)
+            {
+                EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + timerSpan);
+            }
         }
 
-        private void notifyIcon1_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.Visible = true;
-            this.Activate();
-        }
+        #endregion
 
         private async void Blink()
         {
@@ -235,60 +317,15 @@ namespace my_pomodoro
             else Timer.ForeColor = Color.LightGreen;
         }
 
-        //Hotkeys
-        private void TimerScreenForm_KeyDown(object sender, KeyEventArgs e)
+        private void notifyIcon1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Visible = false;
-            }
+            this.Visible = true;
+            this.Activate();
+        }
 
-            if (e.KeyCode == Keys.Space)
-            {
-                if (timer1.Enabled)
-                {
-                    timer1.Stop();
-                    IsTimer1MustBlink = true;
-                    Blink();
-                }
-                else
-                {
-                    timer1.Start();
-                    IsTimer1MustBlink = false;
-                    this.Visible = false;
-                }
-            }
-
-            if (e.KeyCode == Keys.R)
-            {
-                timer1.Stop();
-                IsTimer1MustBlink = false;
-
-                if (IsTimeStatusWork) timerSpan = TimeSpan.FromSeconds(userTimeForWork);
-                else timerSpan = TimeSpan.FromSeconds(userTimeForRest);
-
-                Timer.Text = timerSpan.ToString(@"mm\:ss");
-            }
-
-            if (e.KeyCode == Keys.B)
-            {
-                timer1.Stop();
-                IsTimer1MustBlink = false;
-
-                if (IsTimeStatusWork)
-                {
-                    IsTimeStatusWork = false;
-                    Timer.ForeColor = Color.LightGreen;
-                    timerSpan = TimeSpan.FromSeconds(userTimeForRest);
-                }
-                else
-                {
-                    IsTimeStatusWork = true;
-                    Timer.ForeColor = Color.Tomato;
-                    timerSpan = TimeSpan.FromSeconds(userTimeForWork);
-                }
-                Timer.Text = timerSpan.ToString(@"mm\:ss");
-            }
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Forms;
 
 namespace my_pomodoro
@@ -10,8 +9,8 @@ namespace my_pomodoro
 
         internal void UpdateTimesOfTimer(int workTime, int restTime)
         {
-            TimerScreenForm.userTimeForWork = workTime * 60;
-            TimerScreenForm.userTimeForRest = restTime * 60;
+            TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
+            TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
 
             SaveDataToFile(workTime + "," + restTime);
         }

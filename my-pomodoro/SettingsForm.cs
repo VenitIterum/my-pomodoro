@@ -2,15 +2,13 @@
 using System.Drawing;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
-using System.Collections.Generic;
 
 namespace my_pomodoro
 {
     public partial class SettingsForm : Form
     {
-        SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
-
-        Point lastPoint = new Point();
+        private SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
+        private Point lastPoint = new Point();
 
         public SettingsForm()
         {
@@ -29,6 +27,39 @@ namespace my_pomodoro
             }
         }
 
+        #region === Settings form drag logic ===
+
+        private void SettingsForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void SettingsForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        #endregion
+
+        #region === Enter/Leave cursor on buttons ===
+
+        private void CloseSettingsButton_MouseEnter(object sender, EventArgs e)
+        {
+            CloseSettingsButton.Image = Resources.close_active;
+        }
+
+        private void CloseSettingsButton_MouseLeave(object sender, EventArgs e)
+        {
+            CloseSettingsButton.Image = Resources.close;
+        }
+
+        #endregion
+
+        //TODO Method must work for different timers
         private void CloseSettingsButton_Click(object sender, EventArgs e)
         {
             if (textBoxWork.Text == "" || textBoxRest.Text == "")
@@ -61,30 +92,6 @@ namespace my_pomodoro
             
             saveAndLoadDataToFile.UpdateTimesOfTimer(workTime, restTime);
             this.Close();
-        }
-
-        private void CloseSettingsButton_MouseEnter(object sender, EventArgs e)
-        {
-            CloseSettingsButton.Image = Resources.close_active;
-        }
-
-        private void CloseSettingsButton_MouseLeave(object sender, EventArgs e)
-        {
-            CloseSettingsButton.Image = Resources.close;
-        }
-
-        private void SettingsForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            lastPoint = new Point(e.X, e.Y);
-        }
-
-        private void SettingsForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Left += e.X - lastPoint.X;
-                this.Top += e.Y - lastPoint.Y;
-            }
         }
     }
 }
