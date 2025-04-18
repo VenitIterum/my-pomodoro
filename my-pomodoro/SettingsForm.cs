@@ -20,7 +20,7 @@ namespace my_pomodoro
         {
             string[] userMinutes = saveAndLoadDataToFile.LoadDataFromFile().Split(',');
 
-            if (userMinutes != null)
+            if (saveAndLoadDataToFile.FileExists())
             {
                 textBoxWork.Text = userMinutes[0];//load work time
                 textBoxRest.Text = userMinutes[1];//load rest time
@@ -68,8 +68,20 @@ namespace my_pomodoro
                 return;
             }
 
-            int workTime = Convert.ToInt32(textBoxWork.Text);
-            int restTime = Convert.ToInt32(textBoxRest.Text);
+            int workTime = 55;
+            int restTime = 5;
+
+            try
+            {
+                workTime = Convert.ToInt32(textBoxWork.Text);
+                restTime = Convert.ToInt32(textBoxRest.Text);
+            }
+            catch
+            {
+                MessageBox.Show($"Некорректные значения! Укажите значение в пределах от 1 до 60!");
+                return;
+            }
+
             string messageText = "время";
 
             if ((workTime < 1 || workTime > 60) || (restTime < 1 || restTime > 60))

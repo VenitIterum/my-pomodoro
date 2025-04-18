@@ -4,6 +4,7 @@ using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
+using System.IO;
 
 namespace my_pomodoro
 {
@@ -14,9 +15,10 @@ namespace my_pomodoro
         public static int userTimeForWork = 55 * SecondsInOneMinute;
         public static int userTimeForRest = 5 * SecondsInOneMinute;
 
+        private static string filePath = "Sounds/endTimeBell.wav";
         private bool IsTimeStatusWork = true;
         private bool IsTimer1MustBlink = false;
-        private SoundPlayer soundTimerEnd = new SoundPlayer("endTimeBell.wav");
+        private SoundPlayer soundTimerEnd = new SoundPlayer(filePath);
         private Point lastPoint = new Point();
         private TimeSpan timerSpan;
 
@@ -204,9 +206,12 @@ namespace my_pomodoro
 
         private void StopTimer()
         {
-            timer1.Stop();
-            IsTimer1MustBlink = true;
-            Blink();
+            if (timer1.Enabled)
+            {
+                timer1.Stop();
+                IsTimer1MustBlink = true;
+                Blink();
+            }
         }
 
         private void ReplayTimer()
@@ -265,9 +270,7 @@ namespace my_pomodoro
             {
                 timer1.Stop();
                 this.Visible = true;
-                //this.Activate();
-                //this.WindowState = FormWindowState.Normal;
-                soundTimerEnd.Play();
+                if (File.Exists(filePath)) soundTimerEnd.Play();
 
                 if (IsTimeStatusWork)
                 {

@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Windows.Forms;
 
 namespace my_pomodoro
 {
@@ -29,7 +28,7 @@ namespace my_pomodoro
             }
             else
             {
-                MessageBox.Show($"File {filePath} not found!");
+                //MessageBox.Show($"File {filePath} not found!");
                 return "";
             }
         }
