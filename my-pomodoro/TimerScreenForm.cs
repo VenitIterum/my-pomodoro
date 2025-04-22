@@ -14,11 +14,12 @@ namespace my_pomodoro
 
         public static int userTimeForWork = 55 * SecondsInOneMinute;
         public static int userTimeForRest = 5 * SecondsInOneMinute;
+        public static bool IsSoundAtivate = true;
+        public static string soundName = "EndTimeBell";
 
-        private static string filePath = "Sounds/endTimeBell.wav";
         private bool IsTimeStatusWork = true;
         private bool IsTimer1MustBlink = false;
-        private SoundPlayer soundTimerEnd = new SoundPlayer(filePath);
+        private SoundPlayer soundTimerEnd = new SoundPlayer("Sounds/EndTimeBell.wav");
         private Point lastPoint = new Point();
         private TimeSpan timerSpan;
 
@@ -30,12 +31,15 @@ namespace my_pomodoro
         private void TimerScreenForm_Load(object sender, EventArgs e)
         {
             SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
-            string[] userMinutes = saveAndLoadDataToFile.LoadDataFromFile().Split(',');
+            string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
 
-            if (saveAndLoadDataToFile.FileExists())
+            if (saveAndLoadDataToFile.FileExists(FilesPaths.userSettingsFilePath))
             {
-                userTimeForWork = Convert.ToInt32(userMinutes[0]) * SecondsInOneMinute;
-                userTimeForRest = Convert.ToInt32(userMinutes[1]) * SecondsInOneMinute;
+                userTimeForWork = Convert.ToInt32(userDatas[0]) * SecondsInOneMinute;
+                userTimeForRest = Convert.ToInt32(userDatas[1]) * SecondsInOneMinute;
+                IsSoundAtivate = Convert.ToBoolean(userDatas[2]);
+                soundName = userDatas[3];
+                //soundTimerEnd = new SoundPlayer(FilesPaths.soundPath + soundName + ".wav");
             }
 
             timerSpan = TimeSpan.FromSeconds(userTimeForWork);
@@ -270,7 +274,10 @@ namespace my_pomodoro
             {
                 timer1.Stop();
                 this.Visible = true;
-                if (File.Exists(filePath)) soundTimerEnd.Play();
+
+                //Следующая строчка максимально костыльная. Каждый раз присваивать один и тот же путь до звука такое себе
+                soundTimerEnd = new SoundPlayer(FilesPaths.soundPath + soundName + ".wav");
+                if (File.Exists(FilesPaths.soundPath + soundName + ".wav") && IsSoundAtivate) soundTimerEnd.Play();
 
                 if (IsTimeStatusWork)
                 {

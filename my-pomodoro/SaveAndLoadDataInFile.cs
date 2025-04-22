@@ -4,22 +4,23 @@ namespace my_pomodoro
 {
     internal class SaveAndLoadDataToFile
     {
-        private string filePath = "UserSettings.txt";
-
-        internal void UpdateTimesOfTimer(int workTime, int restTime)
+        internal void UpdateTimesOfTimer(int workTime, int restTime, bool isSoundActivate, string soundName)
         {
+            string strUserData = "";
+            
             TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
             TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
 
-            SaveDataToFile(workTime + "," + restTime);
+            strUserData = $"{workTime},{restTime},{isSoundActivate},{soundName}";
+            SaveDataToFile(strUserData, FilesPaths.userSettingsFilePath);
         }
 
-        internal void SaveDataToFile(string data)
+        internal void SaveDataToFile(string data, string filePath)
         {
             File.WriteAllText(filePath, data);
         }
 
-        internal string LoadDataFromFile()
+        internal string LoadDataFromFile(string filePath)
         {
             if (File.Exists(filePath))
             {
@@ -33,7 +34,7 @@ namespace my_pomodoro
             }
         }
 
-        internal bool FileExists()
+        internal bool FileExists(string filePath)
         {
             if (File.Exists(filePath)) return true;
             else return false;

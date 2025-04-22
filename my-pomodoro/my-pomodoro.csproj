@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilesPaths.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -118,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="my-pomodoro-icon.ico" />
+    <None Include="Resources\play-button-arrowhead-green.png" />
     <None Include="Resources\swap_button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
