@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## Instuction:
+[0.0.0] - 2023-03-05
+- [0.*.*] - major version
+- [*.0.*] - minor version
+- [*.*.0] - maintenance/micro version
+- 2023-03-05 - release date
+
+## Example changes:
+- ***Added*** (Add...)
+- ***Fixed*** (Improve..., Fix...)
+- ***Changed*** (Upgrade...)
+- ***Removed*** (Delete...)
+
+## [1.0.0] - 23.04.2025
+
+### Added
+
+- Add settings window
+- Add sounds for end time of timer
+- Add hotkeys
+- Add user settings: work and rest times, sound selection, sound mute
+- Add instuction for hotkeys
+- Add actual timer
+- Add timer, when the main timer ends
+
+### Improve
+
+- Complete timer logic
+
 ## [0.0.0] - 10.04.2025
 
 ### Added
