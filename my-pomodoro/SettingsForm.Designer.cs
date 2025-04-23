@@ -200,9 +200,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(12, 311);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(223, 29);
+            this.label4.Size = new System.Drawing.Size(219, 29);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Горячие клавишы";
+            this.label4.Text = "Горячие клавиши";
             // 
             // label5
             // 
