@@ -2,9 +2,9 @@
 
 ## Instuction:
 [0.0.0] - 2023-03-05
-- [0.*.*] - major version
-- [*.0.*] - minor version
-- [*.*.0] - maintenance/micro version
+- [0.X.X] - major version
+- [X.0.X] - minor version
+- [X.X.0] - maintenance/micro version
 - 2023-03-05 - release date
 
 ## Example changes:
@@ -25,7 +25,7 @@
 - Add actual timer
 - Add timer, when the main timer ends
 
-### Improve
+### Changed
 
 - Complete timer logic
 
