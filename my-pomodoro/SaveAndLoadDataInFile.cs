@@ -4,15 +4,9 @@ namespace my_pomodoro
 {
     internal class SaveAndLoadDataToFile
     {
-        internal void UpdateTimesOfTimer(int workTime, int restTime, bool isSoundActivate, string soundName)
+        internal void UpdateTimesOfTimer(string newUserDates)
         {
-            string strUserData = "";
-            
-            TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
-            TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
-
-            strUserData = $"{workTime},{restTime},{isSoundActivate},{soundName}";
-            SaveDataToFile(strUserData, FilesPaths.userSettingsFilePath);
+            SaveDataToFile(newUserDates, FilesPaths.userSettingsFilePath);
         }
 
         internal void SaveDataToFile(string data, string filePath)

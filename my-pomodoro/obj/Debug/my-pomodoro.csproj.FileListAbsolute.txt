@@ -9,3 +9,7 @@ D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\My POMODORO.exe
 D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\My POMODORO.pdb
 D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\My POMODORO.exe
 D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\My POMODORO.pdb
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\My POMODORO.exe.manifest
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\My POMODORO.application
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\My POMODORO.exe.manifest
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\My POMODORO.application

@@ -16,8 +16,9 @@ namespace my_pomodoro
 
         public SettingsForm()
         {
+            this.TopMost = true;
             InitializeComponent();
-            ProductVersionLabel.Text = Application.ProductVersion;
+            //ProductVersionLabel.Text = Application.ProductVersion;
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace my_pomodoro
 
         #region === Settings form drag logic ===
 
-        private void SettingsForm_MouseMove(object sender, MouseEventArgs e)
+        private void objectForMoveForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -52,7 +53,7 @@ namespace my_pomodoro
             }
         }
 
-        private void SettingsForm_MouseDown(object sender, MouseEventArgs e)
+        private void objectForMoveForm_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
         }
@@ -63,12 +64,12 @@ namespace my_pomodoro
 
         private void CloseSettingsButton_MouseEnter(object sender, EventArgs e)
         {
-            CloseSettingsButton.Image = Resources.close_active;
+            CloseSettingsButton.Image = Resources.close;
         }
 
         private void CloseSettingsButton_MouseLeave(object sender, EventArgs e)
         {
-            CloseSettingsButton.Image = Resources.close;
+            CloseSettingsButton.Image = Resources.close_active;
         }
 
         private void PlaySoundButton_MouseEnter(object sender, EventArgs e)
@@ -127,13 +128,32 @@ namespace my_pomodoro
             //{
             //    messageText += "время отдыха";
             //}
-
-            TimerScreenForm.IsSoundAtivate = IsSoundActivate;
-
-            saveAndLoadDataToFile.UpdateTimesOfTimer(workTime, restTime, IsSoundActivate, TimerScreenForm.soundName);
-
             soundPlayer.Stop();
-            this.Close();
+
+            string userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath);
+            string newUserDates = $"{workTime},{restTime},{IsSoundActivate},{TimerScreenForm.soundName}";
+
+            if (userDatas == newUserDates)
+                this.Close();
+            else
+            {
+                DialogResult result = MessageBox.Show("Сохранить текущие настройки?", "Предупреждение", MessageBoxButtons.YesNo);
+                
+                if (result == DialogResult.Yes)
+                {
+                    TimerScreenForm.IsSoundAtivate = IsSoundActivate;
+                    TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
+                    TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
+                    
+                    saveAndLoadDataToFile.UpdateTimesOfTimer(newUserDates);
+                    this.Close();
+                }
+                else
+                {
+                    this.Close();
+                    //return;
+                }
+            }
         }
 
         private void PlaySoundButton_Click(object sender, EventArgs e)

@@ -13,6 +13,21 @@
 - ***Changed*** (Upgrade...)
 - ***Removed*** (Delete...)
 
+## [1.0.1] - 24.04.2025
+
+### Added
+
+- Add messege box window, if settings were change
+
+### Changed
+
+- Application redesign
+- Applications are always on top of windows
+
+### Removed
+
+- Delete pause button
+
 ## [1.0.0] - 23.04.2025
 
 ### Added

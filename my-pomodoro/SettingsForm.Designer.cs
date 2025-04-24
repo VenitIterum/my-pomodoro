@@ -58,12 +58,16 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.objectForMoveForm = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PlaySoundButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectForMoveForm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,11 +76,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 13);
+            this.label1.Location = new System.Drawing.Point(16, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 29);
+            this.label1.Size = new System.Drawing.Size(246, 29);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Настройки";
+            this.label1.Text = "Настройки времени";
             // 
             // ProductVersionLabel
             // 
@@ -84,11 +88,11 @@
             this.ProductVersionLabel.BackColor = System.Drawing.Color.Transparent;
             this.ProductVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ProductVersionLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductVersionLabel.Location = new System.Drawing.Point(94, 531);
+            this.ProductVersionLabel.Location = new System.Drawing.Point(712, 324);
             this.ProductVersionLabel.Name = "ProductVersionLabel";
             this.ProductVersionLabel.Size = new System.Drawing.Size(57, 20);
             this.ProductVersionLabel.TabIndex = 2;
-            this.ProductVersionLabel.Text = "0.0.0.0";
+            this.ProductVersionLabel.Text = "1.0.1.0";
             // 
             // Verson
             // 
@@ -96,7 +100,7 @@
             this.Verson.BackColor = System.Drawing.Color.Transparent;
             this.Verson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Verson.ForeColor = System.Drawing.Color.White;
-            this.Verson.Location = new System.Drawing.Point(18, 531);
+            this.Verson.Location = new System.Drawing.Point(636, 324);
             this.Verson.Name = "Verson";
             this.Verson.Size = new System.Drawing.Size(75, 20);
             this.Verson.TabIndex = 3;
@@ -105,7 +109,7 @@
             // textBoxWork
             // 
             this.textBoxWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxWork.Location = new System.Drawing.Point(109, 70);
+            this.textBoxWork.Location = new System.Drawing.Point(113, 100);
             this.textBoxWork.Name = "textBoxWork";
             this.textBoxWork.Size = new System.Drawing.Size(71, 30);
             this.textBoxWork.TabIndex = 4;
@@ -114,7 +118,7 @@
             // textBoxRest
             // 
             this.textBoxRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxRest.Location = new System.Drawing.Point(109, 110);
+            this.textBoxRest.Location = new System.Drawing.Point(113, 140);
             this.textBoxRest.Name = "textBoxRest";
             this.textBoxRest.Size = new System.Drawing.Size(71, 30);
             this.textBoxRest.TabIndex = 5;
@@ -126,7 +130,7 @@
             this.labelWork.BackColor = System.Drawing.Color.Transparent;
             this.labelWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelWork.ForeColor = System.Drawing.Color.White;
-            this.labelWork.Location = new System.Drawing.Point(25, 70);
+            this.labelWork.Location = new System.Drawing.Point(29, 100);
             this.labelWork.Name = "labelWork";
             this.labelWork.Size = new System.Drawing.Size(78, 25);
             this.labelWork.TabIndex = 6;
@@ -138,7 +142,7 @@
             this.labelFree.BackColor = System.Drawing.Color.Transparent;
             this.labelFree.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelFree.ForeColor = System.Drawing.Color.White;
-            this.labelFree.Location = new System.Drawing.Point(25, 110);
+            this.labelFree.Location = new System.Drawing.Point(29, 140);
             this.labelFree.Name = "labelFree";
             this.labelFree.Size = new System.Drawing.Size(75, 25);
             this.labelFree.TabIndex = 7;
@@ -150,7 +154,7 @@
             this.labelMinWork.BackColor = System.Drawing.Color.Transparent;
             this.labelMinWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelMinWork.ForeColor = System.Drawing.Color.White;
-            this.labelMinWork.Location = new System.Drawing.Point(186, 70);
+            this.labelMinWork.Location = new System.Drawing.Point(190, 100);
             this.labelMinWork.Name = "labelMinWork";
             this.labelMinWork.Size = new System.Drawing.Size(56, 25);
             this.labelMinWork.TabIndex = 8;
@@ -162,7 +166,7 @@
             this.labelMinFree.BackColor = System.Drawing.Color.Transparent;
             this.labelMinFree.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelMinFree.ForeColor = System.Drawing.Color.White;
-            this.labelMinFree.Location = new System.Drawing.Point(186, 110);
+            this.labelMinFree.Location = new System.Drawing.Point(190, 140);
             this.labelMinFree.Name = "labelMinFree";
             this.labelMinFree.Size = new System.Drawing.Size(56, 25);
             this.labelMinFree.TabIndex = 9;
@@ -174,7 +178,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(25, 361);
+            this.label2.Location = new System.Drawing.Point(431, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 25);
             this.label2.TabIndex = 10;
@@ -186,7 +190,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(25, 401);
+            this.label3.Location = new System.Drawing.Point(431, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 25);
             this.label3.TabIndex = 11;
@@ -198,7 +202,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 311);
+            this.label4.Location = new System.Drawing.Point(418, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(219, 29);
             this.label4.TabIndex = 12;
@@ -210,7 +214,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(25, 441);
+            this.label5.Location = new System.Drawing.Point(431, 173);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 25);
             this.label5.TabIndex = 13;
@@ -222,7 +226,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(25, 481);
+            this.label6.Location = new System.Drawing.Point(431, 213);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(137, 25);
             this.label6.TabIndex = 14;
@@ -234,7 +238,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(229, 361);
+            this.label7.Location = new System.Drawing.Point(635, 93);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 25);
             this.label7.TabIndex = 15;
@@ -246,7 +250,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(267, 401);
+            this.label8.Location = new System.Drawing.Point(673, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 25);
             this.label8.TabIndex = 16;
@@ -258,7 +262,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(267, 441);
+            this.label9.Location = new System.Drawing.Point(673, 173);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(25, 25);
             this.label9.TabIndex = 17;
@@ -270,7 +274,7 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(258, 481);
+            this.label10.Location = new System.Drawing.Point(664, 213);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 25);
             this.label10.TabIndex = 18;
@@ -281,7 +285,7 @@
             this.checkBoxSound.AutoSize = true;
             this.checkBoxSound.Checked = true;
             this.checkBoxSound.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSound.Location = new System.Drawing.Point(196, 258);
+            this.checkBoxSound.Location = new System.Drawing.Point(200, 288);
             this.checkBoxSound.Name = "checkBoxSound";
             this.checkBoxSound.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkBoxSound.Size = new System.Drawing.Size(18, 17);
@@ -292,7 +296,7 @@
             // comboBoxSound
             // 
             this.comboBoxSound.FormattingEnabled = true;
-            this.comboBoxSound.Location = new System.Drawing.Point(138, 215);
+            this.comboBoxSound.Location = new System.Drawing.Point(142, 245);
             this.comboBoxSound.Name = "comboBoxSound";
             this.comboBoxSound.Size = new System.Drawing.Size(165, 24);
             this.comboBoxSound.TabIndex = 25;
@@ -305,7 +309,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(25, 215);
+            this.label11.Location = new System.Drawing.Point(29, 245);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(96, 25);
             this.label11.TabIndex = 23;
@@ -317,7 +321,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(12, 163);
+            this.label12.Location = new System.Drawing.Point(16, 193);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(68, 29);
             this.label12.TabIndex = 26;
@@ -329,7 +333,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(25, 255);
+            this.label13.Location = new System.Drawing.Point(29, 285);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(155, 25);
             this.label13.TabIndex = 27;
@@ -340,7 +344,7 @@
             this.PlaySoundButton.BackColor = System.Drawing.Color.Transparent;
             this.PlaySoundButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PlaySoundButton.Image = global::my_pomodoro.Properties.Resources.play_button_arrowhead;
-            this.PlaySoundButton.Location = new System.Drawing.Point(316, 213);
+            this.PlaySoundButton.Location = new System.Drawing.Point(320, 243);
             this.PlaySoundButton.Name = "PlaySoundButton";
             this.PlaySoundButton.Size = new System.Drawing.Size(30, 30);
             this.PlaySoundButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -353,7 +357,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox1.Location = new System.Drawing.Point(216, 356);
+            this.pictureBox1.Location = new System.Drawing.Point(622, 88);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(130, 35);
             this.pictureBox1.TabIndex = 19;
@@ -361,12 +365,12 @@
             // 
             // CloseSettingsButton
             // 
-            this.CloseSettingsButton.BackColor = System.Drawing.Color.Transparent;
+            this.CloseSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.CloseSettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseSettingsButton.Image = global::my_pomodoro.Properties.Resources.close;
-            this.CloseSettingsButton.Location = new System.Drawing.Point(358, 13);
+            this.CloseSettingsButton.Image = global::my_pomodoro.Properties.Resources.close_active;
+            this.CloseSettingsButton.Location = new System.Drawing.Point(771, 3);
             this.CloseSettingsButton.Name = "CloseSettingsButton";
-            this.CloseSettingsButton.Size = new System.Drawing.Size(30, 30);
+            this.CloseSettingsButton.Size = new System.Drawing.Size(15, 15);
             this.CloseSettingsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CloseSettingsButton.TabIndex = 0;
             this.CloseSettingsButton.TabStop = false;
@@ -377,7 +381,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox2.Location = new System.Drawing.Point(216, 396);
+            this.pictureBox2.Location = new System.Drawing.Point(622, 128);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(130, 35);
             this.pictureBox2.TabIndex = 20;
@@ -386,7 +390,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox3.Location = new System.Drawing.Point(216, 436);
+            this.pictureBox3.Location = new System.Drawing.Point(622, 168);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(130, 35);
             this.pictureBox3.TabIndex = 21;
@@ -395,18 +399,41 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox4.Location = new System.Drawing.Point(216, 476);
+            this.pictureBox4.Location = new System.Drawing.Point(622, 208);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(130, 35);
             this.pictureBox4.TabIndex = 22;
             this.pictureBox4.TabStop = false;
+            // 
+            // objectForMoveForm
+            // 
+            this.objectForMoveForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.objectForMoveForm.Location = new System.Drawing.Point(0, 0);
+            this.objectForMoveForm.Name = "objectForMoveForm";
+            this.objectForMoveForm.Size = new System.Drawing.Size(790, 20);
+            this.objectForMoveForm.TabIndex = 29;
+            this.objectForMoveForm.TabStop = false;
+            this.objectForMoveForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.objectForMoveForm_MouseDown);
+            this.objectForMoveForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.objectForMoveForm_MouseMove);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox6.Location = new System.Drawing.Point(390, 49);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(5, 270);
+            this.pictureBox6.TabIndex = 30;
+            this.pictureBox6.TabStop = false;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(400, 560);
+            this.ClientSize = new System.Drawing.Size(790, 353);
+            this.Controls.Add(this.CloseSettingsButton);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.objectForMoveForm);
             this.Controls.Add(this.PlaySoundButton);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -432,7 +459,6 @@
             this.Controls.Add(this.Verson);
             this.Controls.Add(this.ProductVersionLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.CloseSettingsButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox4);
@@ -442,14 +468,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingsForm";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.PlaySoundButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectForMoveForm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +512,7 @@
         public System.Windows.Forms.CheckBox checkBoxSound;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox PlaySoundButton;
+        private System.Windows.Forms.PictureBox objectForMoveForm;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

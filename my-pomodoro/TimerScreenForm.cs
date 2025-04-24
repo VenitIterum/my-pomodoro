@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
 using System.IO;
+using System.Diagnostics;
+using System.Xml.Serialization;
 
 namespace my_pomodoro
 {
@@ -25,6 +27,7 @@ namespace my_pomodoro
 
         public TimerScreenForm()
         {
+            this.TopMost = true;
             InitializeComponent();
         }
 
@@ -47,7 +50,7 @@ namespace my_pomodoro
             timer1.Tick += timer1_Tick;
             timer1.Stop();
 
-            Timer.ForeColor = Color.Tomato;
+            Timer.ForeColor = Color.Salmon;
             Timer.Text = timerSpan.ToString(@"mm\:ss");
 
             EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForWork));
@@ -55,7 +58,7 @@ namespace my_pomodoro
 
         #region === Main form drag logic ===
 
-        private void TimerScreenForm_MouseMove(object sender, MouseEventArgs e)
+        private void objectForMoveForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -64,7 +67,7 @@ namespace my_pomodoro
             }
         }
 
-        private void TimerScreenForm_MouseDown(object sender, MouseEventArgs e)
+        private void objectForMoveForm_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
         }
@@ -75,32 +78,28 @@ namespace my_pomodoro
 
         private void closeButton_MouseEnter(object sender, EventArgs e)
         {
-            closeButton.Image = Resources.close_active;
+            closeButton.Image = Resources.close;
         }
 
         private void closeButton_MouseLeave(object sender, EventArgs e)
         {
-            closeButton.Image = Resources.close;
+            closeButton.Image = Resources.close_active;
         }
 
         private void PlayButton_MouseEnter(object sender, EventArgs e)
         {
-            PlayButton.BackColor = Color.LightGray;
+            if (IsTimeStatusWork)
+                PlayButton.BackColor = Color.Tomato;
+            else
+                PlayButton.BackColor = Color.YellowGreen;
         }
 
         private void PlayButton_MouseLeave(object sender, EventArgs e)
         {
-            PlayButton.BackColor = Color.White;
-        }
-
-        private void PauseButton_MouseEnter(object sender, EventArgs e)
-        {
-            PauseButton.BackColor = Color.LightGray;
-        }
-
-        private void PauseButton_MouseLeave(object sender, EventArgs e)
-        {
-            PauseButton.BackColor = Color.White;
+            if (IsTimeStatusWork)
+                PlayButton.BackColor = Color.Salmon;
+            else
+                PlayButton.BackColor = Color.LightGreen;
         }
 
         private void ReplayButton_MouseEnter(object sender, EventArgs e)
@@ -125,12 +124,12 @@ namespace my_pomodoro
 
         private void SettingsButton_MouseEnter(object sender, EventArgs e)
         {
-            SettingsButton.Image = Resources.settings_active;
+            SettingsButton.Image = Resources.settings;
         }
 
         private void SettingsButton_MouseLeave(object sender, EventArgs e)
         {
-            SettingsButton.Image = Resources.settings;
+            SettingsButton.Image = Resources.settings_active;
         }
 
         #endregion
@@ -139,12 +138,7 @@ namespace my_pomodoro
 
         private void PlayButton_MouseClick(object sender, MouseEventArgs e)
         {
-            StartTimer();
-        }
-
-        private void PauseButton_Click(object sender, EventArgs e)
-        {
-            StopTimer();
+            PlayOrStopTimer();
         }
 
         private void ReplayButton_Click(object sender, EventArgs e)
@@ -171,14 +165,7 @@ namespace my_pomodoro
         {
             if (e.KeyCode == Keys.Space)
             {
-                if (!timer1.Enabled)
-                {
-                    StartTimer();
-                }
-                else
-                {
-                    StopTimer();
-                }
+                PlayOrStopTimer();
             }
 
             if (e.KeyCode == Keys.R)
@@ -201,6 +188,20 @@ namespace my_pomodoro
 
         #region === Realization for logic buttons ===
 
+        private void PlayOrStopTimer()
+        {
+            if (!timer1.Enabled)
+            {
+                PlayButton.Image = Resources.pause;
+                StartTimer();
+            }
+            else
+            {
+                PlayButton.Image = Resources.play_button_arrowhead;
+                StopTimer();
+            }
+        }
+
         private void StartTimer()
         {
             timer1.Start();
@@ -210,7 +211,7 @@ namespace my_pomodoro
 
         private void StopTimer()
         {
-            if (timer1.Enabled)
+            if (timer1.Enabled)//Not must have IF
             {
                 timer1.Stop();
                 IsTimer1MustBlink = true;
@@ -222,6 +223,7 @@ namespace my_pomodoro
         {
             timer1.Stop();
             IsTimer1MustBlink = false;
+            PlayButton.Image = Resources.play_button_arrowhead;
 
             if (IsTimeStatusWork)
             {
@@ -239,22 +241,28 @@ namespace my_pomodoro
 
         private void SwapTimer()
         {
-            timer1.Stop();
             IsTimer1MustBlink = false;
+            ChangeTimerType();
+        }
+
+        private void ChangeTimerType()
+        {
+            timer1.Stop();
+            PlayButton.Image = Resources.play_button_arrowhead;
 
             if (IsTimeStatusWork)
             {
                 IsTimeStatusWork = false;
                 Timer.ForeColor = Color.LightGreen;
+                PlayButton.BackColor = Color.LightGreen;
                 timerSpan = TimeSpan.FromSeconds(userTimeForRest);
-                EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForRest));
             }
             else
             {
                 IsTimeStatusWork = true;
-                Timer.ForeColor = Color.Tomato;
+                Timer.ForeColor = Color.Salmon;
+                PlayButton.BackColor = Color.Salmon;
                 timerSpan = TimeSpan.FromSeconds(userTimeForWork);
-                EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForWork));
             }
             Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
@@ -272,27 +280,13 @@ namespace my_pomodoro
             }
             else
             {
-                timer1.Stop();
+                ChangeTimerType();
                 this.Visible = true;
+                this.Activate();
 
                 //Следующая строчка максимально костыльная. Каждый раз присваивать один и тот же путь до звука такое себе
                 soundTimerEnd = new SoundPlayer(FilesPaths.soundPath + soundName + ".wav");
                 if (File.Exists(FilesPaths.soundPath + soundName + ".wav") && IsSoundAtivate) soundTimerEnd.Play();
-
-                if (IsTimeStatusWork)
-                {
-                    IsTimeStatusWork = false;
-                    Timer.ForeColor = Color.LightGreen;
-                    timerSpan = TimeSpan.FromSeconds(userTimeForRest);
-                }
-                else
-                {
-                    IsTimeStatusWork = true;
-                    Timer.ForeColor = Color.Tomato;
-                    timerSpan = TimeSpan.FromSeconds(userTimeForWork);
-                }
-
-                Timer.Text = timerSpan.ToString(@"mm\:ss");
             }
         }
 
@@ -315,7 +309,7 @@ namespace my_pomodoro
 
                 if (IsTimeStatusWork)
                 {
-                    Timer.ForeColor = Timer.ForeColor == Color.Tomato ? Color.Red : Color.Tomato;
+                    Timer.ForeColor = Timer.ForeColor == Color.Salmon ? Color.Tomato : Color.Salmon;
                 }
                 else
                 {
@@ -323,7 +317,7 @@ namespace my_pomodoro
                 }
             }
 
-            if (IsTimeStatusWork) Timer.ForeColor = Color.Tomato;
+            if (IsTimeStatusWork) Timer.ForeColor = Color.Salmon;
             else Timer.ForeColor = Color.LightGreen;
         }
 
