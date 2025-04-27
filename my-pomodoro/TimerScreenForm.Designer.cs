@@ -44,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.EndTime = new System.Windows.Forms.Label();
             this.objectForMoveForm = new System.Windows.Forms.PictureBox();
+            this.Stopwatch = new System.Windows.Forms.Timer(this.components);
+            this.LabelWorkStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SwapButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReplayButton)).BeginInit();
@@ -56,11 +58,11 @@
             // 
             this.Timer.AutoSize = true;
             this.Timer.BackColor = System.Drawing.Color.Transparent;
-            this.Timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Timer.ForeColor = System.Drawing.Color.White;
-            this.Timer.Location = new System.Drawing.Point(0, 15);
+            this.Timer.Location = new System.Drawing.Point(1, 36);
             this.Timer.Name = "Timer";
-            this.Timer.Size = new System.Drawing.Size(251, 95);
+            this.Timer.Size = new System.Drawing.Size(226, 85);
             this.Timer.TabIndex = 0;
             this.Timer.Text = "00:00";
             this.Timer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -71,7 +73,7 @@
             this.ActualTime.BackColor = System.Drawing.Color.Transparent;
             this.ActualTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ActualTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ActualTime.Location = new System.Drawing.Point(255, 50);
+            this.ActualTime.Location = new System.Drawing.Point(245, 50);
             this.ActualTime.Name = "ActualTime";
             this.ActualTime.Size = new System.Drawing.Size(91, 36);
             this.ActualTime.TabIndex = 2;
@@ -93,7 +95,7 @@
             this.ActualTimeLabel.BackColor = System.Drawing.Color.Transparent;
             this.ActualTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ActualTimeLabel.ForeColor = System.Drawing.Color.White;
-            this.ActualTimeLabel.Location = new System.Drawing.Point(255, 30);
+            this.ActualTimeLabel.Location = new System.Drawing.Point(245, 30);
             this.ActualTimeLabel.Name = "ActualTimeLabel";
             this.ActualTimeLabel.Size = new System.Drawing.Size(114, 18);
             this.ActualTimeLabel.TabIndex = 10;
@@ -106,7 +108,7 @@
             this.SwapButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SwapButton.Image = global::my_pomodoro.Properties.Resources.swap_button;
             this.SwapButton.InitialImage = null;
-            this.SwapButton.Location = new System.Drawing.Point(135, 113);
+            this.SwapButton.Location = new System.Drawing.Point(121, 116);
             this.SwapButton.Name = "SwapButton";
             this.SwapButton.Size = new System.Drawing.Size(30, 30);
             this.SwapButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -121,7 +123,7 @@
             this.SettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.SettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SettingsButton.Image = global::my_pomodoro.Properties.Resources.settings_active;
-            this.SettingsButton.Location = new System.Drawing.Point(3, 3);
+            this.SettingsButton.Location = new System.Drawing.Point(500, 3);
             this.SettingsButton.Name = "SettingsButton";
             this.SettingsButton.Size = new System.Drawing.Size(15, 15);
             this.SettingsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -138,7 +140,7 @@
             this.ReplayButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReplayButton.Image = global::my_pomodoro.Properties.Resources.replay;
             this.ReplayButton.InitialImage = null;
-            this.ReplayButton.Location = new System.Drawing.Point(84, 113);
+            this.ReplayButton.Location = new System.Drawing.Point(70, 116);
             this.ReplayButton.Name = "ReplayButton";
             this.ReplayButton.Size = new System.Drawing.Size(30, 30);
             this.ReplayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -195,7 +197,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(255, 90);
+            this.label1.Location = new System.Drawing.Point(245, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 18);
             this.label1.TabIndex = 14;
@@ -207,7 +209,7 @@
             this.EndTime.BackColor = System.Drawing.Color.Transparent;
             this.EndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EndTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.EndTime.Location = new System.Drawing.Point(255, 110);
+            this.EndTime.Location = new System.Drawing.Point(245, 110);
             this.EndTime.Name = "EndTime";
             this.EndTime.Size = new System.Drawing.Size(91, 36);
             this.EndTime.TabIndex = 13;
@@ -224,21 +226,38 @@
             this.objectForMoveForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.objectForMoveForm_MouseDown);
             this.objectForMoveForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.objectForMoveForm_MouseMove);
             // 
+            // Stopwatch
+            // 
+            this.Stopwatch.Tick += new System.EventHandler(this.Stopwatch_Tick);
+            // 
+            // LabelWorkStatus
+            // 
+            this.LabelWorkStatus.AutoSize = true;
+            this.LabelWorkStatus.BackColor = System.Drawing.Color.Transparent;
+            this.LabelWorkStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelWorkStatus.ForeColor = System.Drawing.Color.White;
+            this.LabelWorkStatus.Location = new System.Drawing.Point(13, 25);
+            this.LabelWorkStatus.Name = "LabelWorkStatus";
+            this.LabelWorkStatus.Size = new System.Drawing.Size(59, 18);
+            this.LabelWorkStatus.TabIndex = 16;
+            this.LabelWorkStatus.Text = "Работа";
+            // 
             // TimerScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(540, 155);
+            this.Controls.Add(this.LabelWorkStatus);
+            this.Controls.Add(this.ReplayButton);
+            this.Controls.Add(this.SwapButton);
             this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.objectForMoveForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EndTime);
-            this.Controls.Add(this.SwapButton);
             this.Controls.Add(this.ActualTimeLabel);
-            this.Controls.Add(this.ReplayButton);
             this.Controls.Add(this.ActualTime);
             this.Controls.Add(this.Timer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -246,6 +265,7 @@
             this.Name = "TimerScreenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TimerScreenForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TimerScreenForm_FormClosed);
             this.Load += new System.EventHandler(this.TimerScreenForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TimerScreenForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.SwapButton)).EndInit();
@@ -266,7 +286,6 @@
         private System.Windows.Forms.PictureBox closeButton;
         private System.Windows.Forms.PictureBox PlayButton;
         private System.Windows.Forms.PictureBox ReplayButton;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label ActualTimeLabel;
         private System.Windows.Forms.PictureBox SettingsButton;
@@ -275,5 +294,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label EndTime;
         private System.Windows.Forms.PictureBox objectForMoveForm;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer Stopwatch;
+        private System.Windows.Forms.Label LabelWorkStatus;
     }
 }

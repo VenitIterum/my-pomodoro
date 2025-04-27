@@ -13,6 +13,18 @@
 - ***Changed*** (Upgrade...)
 - ***Removed*** (Delete...)
 
+## [1.0.2] - 27.04.2025
+
+### Added
+
+- Added text above the main timer
+- After the timer is completed, the overtime begins
+- Request to reset the timer after saving the data
+
+### Changed
+
+- The timer text is only white, now
+
 ## [1.0.1] - 24.04.2025
 
 ### Added

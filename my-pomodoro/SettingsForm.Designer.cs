@@ -92,7 +92,7 @@
             this.ProductVersionLabel.Name = "ProductVersionLabel";
             this.ProductVersionLabel.Size = new System.Drawing.Size(57, 20);
             this.ProductVersionLabel.TabIndex = 2;
-            this.ProductVersionLabel.Text = "1.0.1.0";
+            this.ProductVersionLabel.Text = "1.0.2.0";
             // 
             // Verson
             // 

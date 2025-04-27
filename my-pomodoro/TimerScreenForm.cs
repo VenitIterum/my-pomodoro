@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
 using System.IO;
-using System.Diagnostics;
-using System.Xml.Serialization;
 
 namespace my_pomodoro
 {
@@ -14,9 +12,16 @@ namespace my_pomodoro
     {
         public const int SecondsInOneMinute = 60;
 
+        private const string strWorkStatus = "Фокус";
+        private const string strRestStatus = "Отдых";
+        private const string strStatusInWork = "закончится через";
+        private const string strStatusStop = "приостановлен";
+        private const string strStatusHold = "OVERTIME!!!";
+
         public static int userTimeForWork = 55 * SecondsInOneMinute;
         public static int userTimeForRest = 5 * SecondsInOneMinute;
         public static bool IsSoundAtivate = true;
+        public static bool IsTimerActivate = false;//Переменная создана для одной только проверки в окне настроек!
         public static string soundName = "EndTimeBell";
 
         private bool IsTimeStatusWork = true;
@@ -33,6 +38,8 @@ namespace my_pomodoro
 
         private void TimerScreenForm_Load(object sender, EventArgs e)
         {
+            SettingsForm.SaveSettings += ReplayTimer;
+
             SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
             string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
 
@@ -42,15 +49,16 @@ namespace my_pomodoro
                 userTimeForRest = Convert.ToInt32(userDatas[1]) * SecondsInOneMinute;
                 IsSoundAtivate = Convert.ToBoolean(userDatas[2]);
                 soundName = userDatas[3];
-                //soundTimerEnd = new SoundPlayer(FilesPaths.soundPath + soundName + ".wav");
             }
+
+            LabelWorkStatus.Text = strWorkStatus;
 
             timerSpan = TimeSpan.FromSeconds(userTimeForWork);
             timer1.Interval = 1000;
+            Stopwatch.Interval = 1000;
             timer1.Tick += timer1_Tick;
             timer1.Stop();
 
-            Timer.ForeColor = Color.Salmon;
             Timer.Text = timerSpan.ToString(@"mm\:ss");
 
             EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForWork));
@@ -190,21 +198,33 @@ namespace my_pomodoro
 
         private void PlayOrStopTimer()
         {
-            if (!timer1.Enabled)
+            if (!Stopwatch.Enabled)
             {
-                PlayButton.Image = Resources.pause;
-                StartTimer();
+                if (!timer1.Enabled)
+                {
+                    LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
+                    PlayButton.Image = Resources.pause;
+                    StartTimer();
+                }
+                else
+                {
+                    LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusStop}";
+                    PlayButton.Image = Resources.play_button_arrowhead;
+                    StopTimer();
+                }
             }
             else
             {
-                PlayButton.Image = Resources.play_button_arrowhead;
-                StopTimer();
+                Timer.ForeColor = Color.White;
+                SwapTimer();
             }
         }
 
         private void StartTimer()
         {
             timer1.Start();
+            Stopwatch.Stop();
+            IsTimerActivate = true;
             IsTimer1MustBlink = false;
             this.Visible = false;
         }
@@ -214,6 +234,7 @@ namespace my_pomodoro
             if (timer1.Enabled)//Not must have IF
             {
                 timer1.Stop();
+                IsTimerActivate = false;
                 IsTimer1MustBlink = true;
                 Blink();
             }
@@ -222,8 +243,15 @@ namespace my_pomodoro
         private void ReplayTimer()
         {
             timer1.Stop();
+            Stopwatch.Stop();
+
+            IsTimerActivate = false;
             IsTimer1MustBlink = false;
+
+            Timer.ForeColor = Color.White;
             PlayButton.Image = Resources.play_button_arrowhead;
+            LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}");
+
 
             if (IsTimeStatusWork)
             {
@@ -248,22 +276,27 @@ namespace my_pomodoro
         private void ChangeTimerType()
         {
             timer1.Stop();
+            Stopwatch.Stop();
+
+            IsTimerActivate = false;
+
+            Timer.ForeColor = Color.White;
             PlayButton.Image = Resources.play_button_arrowhead;
 
             if (IsTimeStatusWork)
             {
                 IsTimeStatusWork = false;
-                Timer.ForeColor = Color.LightGreen;
                 PlayButton.BackColor = Color.LightGreen;
                 timerSpan = TimeSpan.FromSeconds(userTimeForRest);
             }
             else
             {
                 IsTimeStatusWork = true;
-                Timer.ForeColor = Color.Salmon;
                 PlayButton.BackColor = Color.Salmon;
                 timerSpan = TimeSpan.FromSeconds(userTimeForWork);
             }
+
+            LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}");
             Timer.Text = timerSpan.ToString(@"mm\:ss");
         }
 
@@ -280,7 +313,12 @@ namespace my_pomodoro
             }
             else
             {
-                ChangeTimerType();
+                timer1.Stop();
+                Stopwatch.Start();
+
+                Timer.ForeColor = Color.Tomato;
+                LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusHold}";
+
                 this.Visible = true;
                 this.Activate();
 
@@ -299,6 +337,12 @@ namespace my_pomodoro
             }
         }
 
+        private void Stopwatch_Tick(object sender, EventArgs e)
+        {
+            timerSpan = timerSpan.Add(TimeSpan.FromSeconds(1));
+            Timer.Text = timerSpan.ToString(@"mm\:ss");
+        }
+
         #endregion
 
         private async void Blink()
@@ -307,18 +351,10 @@ namespace my_pomodoro
             {
                 await Task.Delay(500);
 
-                if (IsTimeStatusWork)
-                {
-                    Timer.ForeColor = Timer.ForeColor == Color.Salmon ? Color.Tomato : Color.Salmon;
-                }
-                else
-                {
-                    Timer.ForeColor = Timer.ForeColor == Color.LightGreen ? Color.Green : Color.LightGreen;
-                }
+                Timer.ForeColor = Timer.ForeColor == Color.White ? Color.Gray : Color.White;
             }
 
-            if (IsTimeStatusWork) Timer.ForeColor = Color.Salmon;
-            else Timer.ForeColor = Color.LightGreen;
+            Timer.ForeColor = Color.White;
         }
 
         private void notifyIcon1_MouseDown(object sender, MouseEventArgs e)
@@ -330,6 +366,11 @@ namespace my_pomodoro
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TimerScreenForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SettingsForm.SaveSettings -= ReplayTimer;
         }
     }
 }

@@ -3,12 +3,13 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace my_pomodoro
 {
     public partial class SettingsForm : Form
     {
+        public static event Action SaveSettings;
+
         private SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
         private SoundPlayer soundPlayer = new SoundPlayer(FilesPaths.soundPath + TimerScreenForm.soundName + ".wav");
         private Point lastPoint = new Point();
@@ -20,7 +21,7 @@ namespace my_pomodoro
             InitializeComponent();
             //ProductVersionLabel.Text = Application.ProductVersion;
         }
-
+        
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
@@ -137,21 +138,32 @@ namespace my_pomodoro
                 this.Close();
             else
             {
-                DialogResult result = MessageBox.Show("Сохранить текущие настройки?", "Предупреждение", MessageBoxButtons.YesNo);
+                DialogResult saveResult = MessageBox.Show("Сохранить текущие настройки?", "Предупреждение", MessageBoxButtons.YesNo);
                 
-                if (result == DialogResult.Yes)
+                if (saveResult == DialogResult.Yes)
                 {
                     TimerScreenForm.IsSoundAtivate = IsSoundActivate;
                     TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
                     TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
                     
                     saveAndLoadDataToFile.UpdateTimesOfTimer(newUserDates);
+                    if (TimerScreenForm.IsTimerActivate)
+                    {
+                        DialogResult timerOnResult = MessageBox.Show("Сбросить текущее время?", "Предупреждение", MessageBoxButtons.YesNo);
+                        if (timerOnResult == DialogResult.Yes)
+                        {
+                            SaveSettings.Invoke();
+                        }
+                    }
+                    else
+                    {
+                        SaveSettings.Invoke();
+                    }
                     this.Close();
                 }
                 else
                 {
                     this.Close();
-                    //return;
                 }
             }
         }
