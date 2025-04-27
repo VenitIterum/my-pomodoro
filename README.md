@@ -10,11 +10,8 @@ Created with love on Windows Forms💻❤️
 - Sound notifications
 - Simple and pleasant interface
 
-💾Download
-Do you just want to try it?
-
+Do you just want to try it?💾
 👉[Download the latest version (.exe)](https://github.com/VenitIterum/my-pomodoro/releases/latest)
-
 (Safe, virus-free, just love and pomodoro)
 
 🛠Technology
