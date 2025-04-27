@@ -10,8 +10,8 @@ Created with love on Windows Forms💻❤️
 - Sound notifications
 - Simple and pleasant interface
 
-Do you just want to try it?💾
-👉[Download the latest version (.exe)](https://github.com/VenitIterum/my-pomodoro/releases/latest)
+Do you just want to try it?💾  
+👉[Download the latest version (.exe)](https://github.com/VenitIterum/my-pomodoro/releases/latest)  
 (Safe, virus-free, just love and pomodoro)
 
 🛠Technology
@@ -19,6 +19,6 @@ Do you just want to try it?💾
 - Windows Forms (WinForms)
 - C#
 
-🤝😊Feedback
+🤝😊Feedback  
 If you find a bug, want to suggest improvements, or just want to say thank you, write, don't hesitate!
 I read everything (no)
