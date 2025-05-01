@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="My POMODORO.exe" size="264176">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="My POMODORO.exe" size="265200">
       <assemblyIdentity name="My POMODORO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uLiFFWT8b2sqvBN+CjtnjziHwNoDnndyCoer/kfvhfU=</dsig:DigestValue>
+        <dsig:DigestValue>PTGNlCcOic7pOhDNlZPF6/yLj5rExfsUS8xNintA41g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
 using System.IO;
+using Microsoft.Win32;
 
 namespace my_pomodoro
 {
@@ -17,16 +18,19 @@ namespace my_pomodoro
         private const string strStatusInWork = "закончится через";
         private const string strStatusStop = "приостановлен";
         private const string strStatusHold = "OVERTIME!!!";
+        private const string myAppName = "My POMODORO";
 
         public static int userTimeForWork = 55 * SecondsInOneMinute;
         public static int userTimeForRest = 5 * SecondsInOneMinute;
         public static bool IsSoundAtivate = true;
         public static bool IsTimerActivate = false;//Переменная создана для одной только проверки в окне настроек!
+        public static bool IsAutoRunOn = false;
         public static string soundName = "EndTimeBell";
 
         private bool IsTimeStatusWork = true;
         private bool IsTimer1MustBlink = false;
         private SoundPlayer soundTimerEnd = new SoundPlayer("Sounds/EndTimeBell.wav");
+        private RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
         private Point lastPoint = new Point();
         private TimeSpan timerSpan;
 
@@ -34,11 +38,17 @@ namespace my_pomodoro
         {
             this.TopMost = true;
             InitializeComponent();
+
+            if(rkApp.GetValue(myAppName) == null)
+                IsAutoRunOn = false;
+            else
+                IsAutoRunOn = true;
         }
 
         private void TimerScreenForm_Load(object sender, EventArgs e)
         {
             SettingsForm.SaveSettings += ReplayTimer;
+            SettingsForm.SaveSettings += ChangeAplicationAutoRun;
 
             SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
             string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
@@ -357,6 +367,14 @@ namespace my_pomodoro
             Timer.ForeColor = Color.White;
         }
 
+        private void ChangeAplicationAutoRun()
+        {
+            if (IsAutoRunOn)
+                rkApp.SetValue(myAppName, Application.ExecutablePath);
+            else
+                rkApp.DeleteValue(myAppName, false);
+        }
+
         private void notifyIcon1_MouseDown(object sender, MouseEventArgs e)
         {
             this.Visible = true;
@@ -371,6 +389,7 @@ namespace my_pomodoro
         private void TimerScreenForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             SettingsForm.SaveSettings -= ReplayTimer;
+            SettingsForm.SaveSettings -= ChangeAplicationAutoRun;
         }
     }
 }
