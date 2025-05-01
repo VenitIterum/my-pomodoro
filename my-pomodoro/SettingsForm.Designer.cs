@@ -92,11 +92,11 @@
             this.ProductVersionLabel.BackColor = System.Drawing.Color.Transparent;
             this.ProductVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ProductVersionLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductVersionLabel.Location = new System.Drawing.Point(712, 324);
+            this.ProductVersionLabel.Location = new System.Drawing.Point(728, 324);
             this.ProductVersionLabel.Name = "ProductVersionLabel";
-            this.ProductVersionLabel.Size = new System.Drawing.Size(57, 20);
+            this.ProductVersionLabel.Size = new System.Drawing.Size(44, 20);
             this.ProductVersionLabel.TabIndex = 2;
-            this.ProductVersionLabel.Text = "1.0.3.0";
+            this.ProductVersionLabel.Text = "1.0.0";
             // 
             // Verson
             // 
@@ -104,7 +104,7 @@
             this.Verson.BackColor = System.Drawing.Color.Transparent;
             this.Verson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Verson.ForeColor = System.Drawing.Color.White;
-            this.Verson.Location = new System.Drawing.Point(636, 324);
+            this.Verson.Location = new System.Drawing.Point(652, 324);
             this.Verson.Name = "Verson";
             this.Verson.Size = new System.Drawing.Size(75, 20);
             this.Verson.TabIndex = 3;

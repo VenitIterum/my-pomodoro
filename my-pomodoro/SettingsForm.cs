@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Media;
+using System.Reflection;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
 
@@ -19,7 +20,7 @@ namespace my_pomodoro
         {
             this.TopMost = true;
             InitializeComponent();
-            //ProductVersionLabel.Text = Application.ProductVersion;
+            ProductVersionLabel.Text = Application.ProductVersion;
         }
         
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -87,7 +88,6 @@ namespace my_pomodoro
 
         #endregion
 
-        //TODO Method must work for different timers
         private void CloseSettingsButton_Click(object sender, EventArgs e)
         {
             if (textBoxWork.Text == "" || textBoxRest.Text == "")
@@ -96,7 +96,7 @@ namespace my_pomodoro
                 return;
             }
 
-            //Это можно удалить
+            //Not must have
             int workTime = 55;
             int restTime = 5;
 
