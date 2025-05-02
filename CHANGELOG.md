@@ -20,7 +20,7 @@
 - Added check box for application autorun
 - The application can be launched when the computer starts up
 
-###Fixed
+### Fixed
 
 - Fix output aplication version in settings form
 
