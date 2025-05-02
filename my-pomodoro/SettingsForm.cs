@@ -19,7 +19,7 @@ namespace my_pomodoro
         {
             this.TopMost = true;
             InitializeComponent();
-            //ProductVersionLabel.Text = Application.ProductVersion;
+            ProductVersionLabel.Text = Application.ProductVersion;
         }
         
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -41,6 +41,8 @@ namespace my_pomodoro
             {
                 comboBoxSound.Items.AddRange(soundsList);
             }
+
+            checkBoxAutoRun.Checked = TimerScreenForm.IsAutoRunOn;
         }
 
         #region === Settings form drag logic ===
@@ -85,7 +87,6 @@ namespace my_pomodoro
 
         #endregion
 
-        //TODO Method must work for different timers
         private void CloseSettingsButton_Click(object sender, EventArgs e)
         {
             if (textBoxWork.Text == "" || textBoxRest.Text == "")
@@ -94,7 +95,7 @@ namespace my_pomodoro
                 return;
             }
 
-            //Это можно удалить
+            //Not must have
             int workTime = 55;
             int restTime = 5;
 
@@ -134,7 +135,7 @@ namespace my_pomodoro
             string userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath);
             string newUserDates = $"{workTime},{restTime},{IsSoundActivate},{TimerScreenForm.soundName}";
 
-            if (userDatas == newUserDates)
+            if (userDatas == newUserDates && TimerScreenForm.IsAutoRunOn == checkBoxAutoRun.Checked)
                 this.Close();
             else
             {
@@ -145,11 +146,13 @@ namespace my_pomodoro
                     TimerScreenForm.IsSoundAtivate = IsSoundActivate;
                     TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
                     TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
-                    
+                    TimerScreenForm.IsAutoRunOn = checkBoxAutoRun.Checked; 
+
                     saveAndLoadDataToFile.UpdateTimesOfTimer(newUserDates);
                     if (TimerScreenForm.IsTimerActivate)
                     {
                         DialogResult timerOnResult = MessageBox.Show("Сбросить текущее время?", "Предупреждение", MessageBoxButtons.YesNo);
+                        
                         if (timerOnResult == DialogResult.Yes)
                         {
                             SaveSettings.Invoke();

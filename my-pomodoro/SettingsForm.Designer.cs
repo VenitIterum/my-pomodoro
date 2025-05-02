@@ -60,6 +60,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.objectForMoveForm = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.checkBoxAutoRun = new System.Windows.Forms.CheckBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PlaySoundButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).BeginInit();
@@ -68,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectForMoveForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,11 +92,11 @@
             this.ProductVersionLabel.BackColor = System.Drawing.Color.Transparent;
             this.ProductVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ProductVersionLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductVersionLabel.Location = new System.Drawing.Point(712, 324);
+            this.ProductVersionLabel.Location = new System.Drawing.Point(728, 324);
             this.ProductVersionLabel.Name = "ProductVersionLabel";
-            this.ProductVersionLabel.Size = new System.Drawing.Size(57, 20);
+            this.ProductVersionLabel.Size = new System.Drawing.Size(44, 20);
             this.ProductVersionLabel.TabIndex = 2;
-            this.ProductVersionLabel.Text = "1.0.2.0";
+            this.ProductVersionLabel.Text = "1.0.0";
             // 
             // Verson
             // 
@@ -100,7 +104,7 @@
             this.Verson.BackColor = System.Drawing.Color.Transparent;
             this.Verson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Verson.ForeColor = System.Drawing.Color.White;
-            this.Verson.Location = new System.Drawing.Point(636, 324);
+            this.Verson.Location = new System.Drawing.Point(652, 324);
             this.Verson.Name = "Verson";
             this.Verson.Size = new System.Drawing.Size(75, 20);
             this.Verson.TabIndex = 3;
@@ -285,7 +289,7 @@
             this.checkBoxSound.AutoSize = true;
             this.checkBoxSound.Checked = true;
             this.checkBoxSound.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSound.Location = new System.Drawing.Point(200, 288);
+            this.checkBoxSound.Location = new System.Drawing.Point(200, 290);
             this.checkBoxSound.Name = "checkBoxSound";
             this.checkBoxSound.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkBoxSound.Size = new System.Drawing.Size(18, 17);
@@ -425,12 +429,46 @@
             this.pictureBox6.TabIndex = 30;
             this.pictureBox6.TabStop = false;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(431, 285);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(119, 25);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Автозапуск";
+            // 
+            // checkBoxAutoRun
+            // 
+            this.checkBoxAutoRun.AutoSize = true;
+            this.checkBoxAutoRun.Location = new System.Drawing.Point(570, 290);
+            this.checkBoxAutoRun.Name = "checkBoxAutoRun";
+            this.checkBoxAutoRun.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.checkBoxAutoRun.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxAutoRun.TabIndex = 31;
+            this.checkBoxAutoRun.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox5.Location = new System.Drawing.Point(440, 264);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(300, 5);
+            this.pictureBox5.TabIndex = 33;
+            this.pictureBox5.TabStop = false;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(790, 353);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.checkBoxAutoRun);
             this.Controls.Add(this.CloseSettingsButton);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.objectForMoveForm);
@@ -476,6 +514,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectForMoveForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,5 +553,8 @@
         private System.Windows.Forms.PictureBox PlaySoundButton;
         private System.Windows.Forms.PictureBox objectForMoveForm;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.CheckBox checkBoxAutoRun;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
