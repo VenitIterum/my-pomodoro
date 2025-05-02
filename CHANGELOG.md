@@ -13,6 +13,21 @@
 - ***Changed*** (Upgrade...)
 - ***Removed*** (Delete...)
 
+## [1.0.3] - 02.05.2025
+
+### Added
+
+- Added check box for application autorun
+- The application can be launched when the computer starts up
+
+###Fixed
+
+- Fix output aplication version in settings form
+
+### Changed
+
+- Change the relative paths to absolute ones
+
 ## [1.0.2] - 27.04.2025
 
 ### Added
