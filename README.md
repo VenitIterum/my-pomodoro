@@ -1,7 +1,7 @@
 # My POMODORO
 Just my experimental desktop application for Windows and for myself.
 
-History of changes - [CHANGELOG.MD](CHANGELOG.MD)
+History of changes - [CHANGELOG.MD](https://github.com/VenitIterum/my-pomodoro/blob/main/CHANGELOG.md)
 
 Created with love on Windows Forms💻❤️
 
