@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Media;
-using System.Reflection;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
 
