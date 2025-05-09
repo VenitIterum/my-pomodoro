@@ -12,7 +12,9 @@ Created with love on Windows Forms💻❤️
 
 Do you just want to try it?💾  
 👉[Download the latest version (.exe)](https://github.com/VenitIterum/my-pomodoro/releases/latest)  
-(Safe, virus-free, just love and pomodoro)
+(Safe, virus-free, just love and pomodoro)  
+
+You can add your own sounds by following the instructions in the app!😱  
 
 🛠Technology
 - Platform.NET Framework / .NET Core
