@@ -13,3 +13,4 @@ D:\Projects\my-pomodoro\my-pomodoro\bin\Release\My POMODORO.exe.manifest
 D:\Projects\my-pomodoro\my-pomodoro\bin\Release\My POMODORO.application
 D:\Projects\my-pomodoro\my-pomodoro\obj\Release\My POMODORO.exe.manifest
 D:\Projects\my-pomodoro\my-pomodoro\obj\Release\My POMODORO.application
+D:\Projects\my-pomodoro\my-pomodoro\obj\Release\my_pomodoro.AboutAppForm.resources
