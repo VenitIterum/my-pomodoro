@@ -64,6 +64,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelPathForUserSounds = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.InfoButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).BeginInit();
@@ -94,7 +96,7 @@
             this.ProductVersionLabel.BackColor = System.Drawing.Color.Transparent;
             this.ProductVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ProductVersionLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductVersionLabel.Location = new System.Drawing.Point(728, 324);
+            this.ProductVersionLabel.Location = new System.Drawing.Point(734, 396);
             this.ProductVersionLabel.Name = "ProductVersionLabel";
             this.ProductVersionLabel.Size = new System.Drawing.Size(44, 20);
             this.ProductVersionLabel.TabIndex = 2;
@@ -106,7 +108,7 @@
             this.Verson.BackColor = System.Drawing.Color.Transparent;
             this.Verson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Verson.ForeColor = System.Drawing.Color.White;
-            this.Verson.Location = new System.Drawing.Point(652, 324);
+            this.Verson.Location = new System.Drawing.Point(658, 396);
             this.Verson.Name = "Verson";
             this.Verson.Size = new System.Drawing.Size(75, 20);
             this.Verson.TabIndex = 3;
@@ -306,7 +308,7 @@
             this.comboBoxSound.Name = "comboBoxSound";
             this.comboBoxSound.Size = new System.Drawing.Size(165, 24);
             this.comboBoxSound.TabIndex = 25;
-            this.comboBoxSound.Text = "EndTimeBell";
+            this.comboBoxSound.Text = "End Time Bell";
             this.comboBoxSound.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSound_SelectionChangeCommitted);
             // 
             // label11
@@ -411,7 +413,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox6.Location = new System.Drawing.Point(390, 49);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(5, 270);
+            this.pictureBox6.Size = new System.Drawing.Size(5, 345);
             this.pictureBox6.TabIndex = 30;
             this.pictureBox6.TabStop = false;
             // 
@@ -477,12 +479,38 @@
             this.pictureBox4.TabIndex = 22;
             this.pictureBox4.TabStop = false;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(29, 325);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(262, 36);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "Свои звуки в формате .wav можно\r\nдобавлять в папку \"Sounds\" по пути:";
+            // 
+            // labelPathForUserSounds
+            // 
+            this.labelPathForUserSounds.AutoSize = true;
+            this.labelPathForUserSounds.BackColor = System.Drawing.Color.Transparent;
+            this.labelPathForUserSounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPathForUserSounds.ForeColor = System.Drawing.Color.Turquoise;
+            this.labelPathForUserSounds.Location = new System.Drawing.Point(29, 365);
+            this.labelPathForUserSounds.Name = "labelPathForUserSounds";
+            this.labelPathForUserSounds.Size = new System.Drawing.Size(36, 18);
+            this.labelPathForUserSounds.TabIndex = 36;
+            this.labelPathForUserSounds.Text = "path";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(790, 353);
+            this.ClientSize = new System.Drawing.Size(790, 425);
+            this.Controls.Add(this.labelPathForUserSounds);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.InfoButton);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label14);
@@ -576,5 +604,7 @@
         public System.Windows.Forms.CheckBox checkBoxAutoRun;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox InfoButton;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelPathForUserSounds;
     }
 }

@@ -51,6 +51,8 @@ namespace my_pomodoro
             }
 
             checkBoxAutoRun.Checked = TimerScreenForm.IsAutoRunOn;
+
+            labelPathForUserSounds.Text = FilesPaths.soundPath;
         }
 
         #region === Settings form drag logic ===
