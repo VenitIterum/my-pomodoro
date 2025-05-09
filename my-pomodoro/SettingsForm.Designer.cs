@@ -52,26 +52,28 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.checkBoxAutoRun = new System.Windows.Forms.CheckBox();
+            this.InfoButton = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.CloseSettingsButton = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.objectForMoveForm = new System.Windows.Forms.PictureBox();
             this.PlaySoundButton = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.CloseSettingsButton = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.objectForMoveForm = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.checkBoxAutoRun = new System.Windows.Forms.CheckBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectForMoveForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaySoundButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectForMoveForm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -343,6 +345,87 @@
             this.label13.TabIndex = 27;
             this.label13.Text = "Вкл./Выкл. звук";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(431, 285);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(119, 25);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Автозапуск";
+            // 
+            // checkBoxAutoRun
+            // 
+            this.checkBoxAutoRun.AutoSize = true;
+            this.checkBoxAutoRun.Location = new System.Drawing.Point(570, 290);
+            this.checkBoxAutoRun.Name = "checkBoxAutoRun";
+            this.checkBoxAutoRun.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.checkBoxAutoRun.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxAutoRun.TabIndex = 31;
+            this.checkBoxAutoRun.UseVisualStyleBackColor = true;
+            // 
+            // InfoButton
+            // 
+            this.InfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.InfoButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InfoButton.Image = global::my_pomodoro.Properties.Resources.info;
+            this.InfoButton.Location = new System.Drawing.Point(750, 3);
+            this.InfoButton.Name = "InfoButton";
+            this.InfoButton.Size = new System.Drawing.Size(15, 15);
+            this.InfoButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.InfoButton.TabIndex = 34;
+            this.InfoButton.TabStop = false;
+            this.InfoButton.Click += new System.EventHandler(this.InfoButton_Click);
+            this.InfoButton.MouseEnter += new System.EventHandler(this.InfoButton_MouseEnter);
+            this.InfoButton.MouseLeave += new System.EventHandler(this.InfoButton_MouseLeave);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox5.Location = new System.Drawing.Point(440, 264);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(300, 5);
+            this.pictureBox5.TabIndex = 33;
+            this.pictureBox5.TabStop = false;
+            // 
+            // CloseSettingsButton
+            // 
+            this.CloseSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CloseSettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseSettingsButton.Image = global::my_pomodoro.Properties.Resources.close_active;
+            this.CloseSettingsButton.Location = new System.Drawing.Point(770, 3);
+            this.CloseSettingsButton.Name = "CloseSettingsButton";
+            this.CloseSettingsButton.Size = new System.Drawing.Size(15, 15);
+            this.CloseSettingsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseSettingsButton.TabIndex = 0;
+            this.CloseSettingsButton.TabStop = false;
+            this.CloseSettingsButton.Click += new System.EventHandler(this.CloseSettingsButton_Click);
+            this.CloseSettingsButton.MouseEnter += new System.EventHandler(this.CloseSettingsButton_MouseEnter);
+            this.CloseSettingsButton.MouseLeave += new System.EventHandler(this.CloseSettingsButton_MouseLeave);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox6.Location = new System.Drawing.Point(390, 49);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(5, 270);
+            this.pictureBox6.TabIndex = 30;
+            this.pictureBox6.TabStop = false;
+            // 
+            // objectForMoveForm
+            // 
+            this.objectForMoveForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.objectForMoveForm.Location = new System.Drawing.Point(0, 0);
+            this.objectForMoveForm.Name = "objectForMoveForm";
+            this.objectForMoveForm.Size = new System.Drawing.Size(790, 20);
+            this.objectForMoveForm.TabIndex = 29;
+            this.objectForMoveForm.TabStop = false;
+            this.objectForMoveForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.objectForMoveForm_MouseDown);
+            this.objectForMoveForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.objectForMoveForm_MouseMove);
+            // 
             // PlaySoundButton
             // 
             this.PlaySoundButton.BackColor = System.Drawing.Color.Transparent;
@@ -366,21 +449,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(130, 35);
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
-            // 
-            // CloseSettingsButton
-            // 
-            this.CloseSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CloseSettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseSettingsButton.Image = global::my_pomodoro.Properties.Resources.close_active;
-            this.CloseSettingsButton.Location = new System.Drawing.Point(771, 3);
-            this.CloseSettingsButton.Name = "CloseSettingsButton";
-            this.CloseSettingsButton.Size = new System.Drawing.Size(15, 15);
-            this.CloseSettingsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseSettingsButton.TabIndex = 0;
-            this.CloseSettingsButton.TabStop = false;
-            this.CloseSettingsButton.Click += new System.EventHandler(this.CloseSettingsButton_Click);
-            this.CloseSettingsButton.MouseEnter += new System.EventHandler(this.CloseSettingsButton_MouseEnter);
-            this.CloseSettingsButton.MouseLeave += new System.EventHandler(this.CloseSettingsButton_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -409,63 +477,13 @@
             this.pictureBox4.TabIndex = 22;
             this.pictureBox4.TabStop = false;
             // 
-            // objectForMoveForm
-            // 
-            this.objectForMoveForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.objectForMoveForm.Location = new System.Drawing.Point(0, 0);
-            this.objectForMoveForm.Name = "objectForMoveForm";
-            this.objectForMoveForm.Size = new System.Drawing.Size(790, 20);
-            this.objectForMoveForm.TabIndex = 29;
-            this.objectForMoveForm.TabStop = false;
-            this.objectForMoveForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.objectForMoveForm_MouseDown);
-            this.objectForMoveForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.objectForMoveForm_MouseMove);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox6.Location = new System.Drawing.Point(390, 49);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(5, 270);
-            this.pictureBox6.TabIndex = 30;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(431, 285);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(119, 25);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "Автозапуск";
-            // 
-            // checkBoxAutoRun
-            // 
-            this.checkBoxAutoRun.AutoSize = true;
-            this.checkBoxAutoRun.Location = new System.Drawing.Point(570, 290);
-            this.checkBoxAutoRun.Name = "checkBoxAutoRun";
-            this.checkBoxAutoRun.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBoxAutoRun.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxAutoRun.TabIndex = 31;
-            this.checkBoxAutoRun.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox5.Location = new System.Drawing.Point(440, 264);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(300, 5);
-            this.pictureBox5.TabIndex = 33;
-            this.pictureBox5.TabStop = false;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(790, 353);
+            this.Controls.Add(this.InfoButton);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.checkBoxAutoRun);
@@ -506,15 +524,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingsForm";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.InfoButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectForMoveForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaySoundButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectForMoveForm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,5 +575,6 @@
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.CheckBox checkBoxAutoRun;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox InfoButton;
     }
 }

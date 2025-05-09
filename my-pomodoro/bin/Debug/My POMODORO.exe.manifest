@@ -4,7 +4,7 @@
   <description asmv2:iconFile="my-pomodoro-icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="My POMODORO" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="My POMODORO" version="1.0.4.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="My POMODORO.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="My POMODORO.exe" size="267248">
-      <assemblyIdentity name="My POMODORO" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="My POMODORO.exe" size="304112">
+      <assemblyIdentity name="My POMODORO" version="1.0.4.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LTeuB6uZb13Qn/V1uEv7et5vj3xGFb0jB5/58X0c3mM=</dsig:DigestValue>
+        <dsig:DigestValue>hoNjsdXt152j7Dr0oUOhsT5rA3RgBRPSyA1u1icPKGY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

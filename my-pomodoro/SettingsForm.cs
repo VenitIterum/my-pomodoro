@@ -85,6 +85,16 @@ namespace my_pomodoro
             PlaySoundButton.Image = Resources.play_button_arrowhead;
         }
 
+        private void InfoButton_MouseEnter(object sender, EventArgs e)
+        {
+            InfoButton.Image = Resources.info_black;
+        }
+
+        private void InfoButton_MouseLeave(object sender, EventArgs e)
+        {
+            InfoButton.Image = Resources.info;
+        }
+
         #endregion
 
         private void CloseSettingsButton_Click(object sender, EventArgs e)
@@ -188,6 +198,12 @@ namespace my_pomodoro
 
             if (checkBox.Checked) IsSoundActivate = true;
             else IsSoundActivate = false;
+        }
+
+        private void InfoButton_Click(object sender, EventArgs e)
+        {
+            AboutAppForm aboutAppForm = new AboutAppForm();
+            aboutAppForm.ShowDialog();
         }
     }
 }
