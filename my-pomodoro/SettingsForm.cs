@@ -193,7 +193,7 @@ namespace my_pomodoro
 
         private void PlaySoundButton_Click(object sender, EventArgs e)
         {
-            if (true)
+            if (File.Exists(FilesPaths.soundPath + TimerScreenForm.soundName + ".wav"))
             {
                 soundPlayer.Play();
             }
