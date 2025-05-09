@@ -29,7 +29,7 @@ namespace my_pomodoro
 
         private bool IsTimeStatusWork = true;
         private bool IsTimer1MustBlink = false;
-        private SoundPlayer soundTimerEnd = new SoundPlayer("Sounds/EndTimeBell.wav");
+        private SoundPlayer soundTimerEnd = new SoundPlayer($"{FilesPaths.soundPath}{soundName}.wav");
         private RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
         private Point lastPoint = new Point();
         private TimeSpan timerSpan;
