@@ -25,7 +25,7 @@ namespace my_pomodoro
         public static bool IsSoundAtivate = true;
         public static bool IsTimerActivate = false;//Переменная создана для одной только проверки в окне настроек!
         public static bool IsAutoRunOn = false;
-        public static string soundName = "EndTimeBell";
+        public static string soundName = "End Time Bell";
 
         private bool IsTimeStatusWork = true;
         private bool IsTimer1MustBlink = false;
