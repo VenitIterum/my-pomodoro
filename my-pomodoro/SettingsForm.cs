@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Media;
 using System.Windows.Forms;
 using my_pomodoro.Properties;
@@ -25,7 +27,13 @@ namespace my_pomodoro
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
-            string[] soundsList = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.soundsListFilePath).Split(',');
+            string[] pathsSoundFiles = Directory.GetFiles(FilesPaths.soundPath, "*.wav");
+            List<string> soundsList = new List<string>();
+
+            foreach (string path in pathsSoundFiles)
+            {
+                soundsList.Add(Path.GetFileNameWithoutExtension(path));
+            }
 
             if (saveAndLoadDataToFile.FileExists(FilesPaths.userSettingsFilePath))
             {
@@ -37,12 +45,14 @@ namespace my_pomodoro
 
             TimerScreenForm.soundName = comboBoxSound.Text;
 
-            if (saveAndLoadDataToFile.FileExists(FilesPaths.soundsListFilePath))
+            if (pathsSoundFiles.Length != 0)
             {
-                comboBoxSound.Items.AddRange(soundsList);
+                comboBoxSound.Items.AddRange(soundsList.ToArray());
             }
 
             checkBoxAutoRun.Checked = TimerScreenForm.IsAutoRunOn;
+
+            labelPathForUserSounds.Text = FilesPaths.soundPath;
         }
 
         #region === Settings form drag logic ===
@@ -183,7 +193,10 @@ namespace my_pomodoro
 
         private void PlaySoundButton_Click(object sender, EventArgs e)
         {
-            soundPlayer.Play();
+            if (true)
+            {
+                soundPlayer.Play();
+            }
         }
 
         private void comboBoxSound_SelectionChangeCommitted(object sender, EventArgs e)
