@@ -13,6 +13,26 @@
 - ***Changed*** (Upgrade...)
 - ***Removed*** (Delete...)
 
+## [1.0.4] - 09.05.2025
+
+### Added
+
+- Added new form about application
+- Added new sounds
+- Added instruction in settings form for user sounds
+
+### Fixed
+
+- Fix path for default sound
+
+### Changed
+
+- Now the program creates a list of sounds based on the presence of files in the folder
+
+### Removed
+
+- Deleted .txt file with sounds name
+
 ## [1.0.3] - 02.05.2025
 
 ### Added
