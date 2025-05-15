@@ -66,6 +66,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.labelPathForUserSounds = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.InfoButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).BeginInit();
@@ -96,7 +99,7 @@
             this.ProductVersionLabel.BackColor = System.Drawing.Color.Transparent;
             this.ProductVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ProductVersionLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductVersionLabel.Location = new System.Drawing.Point(734, 396);
+            this.ProductVersionLabel.Location = new System.Drawing.Point(734, 406);
             this.ProductVersionLabel.Name = "ProductVersionLabel";
             this.ProductVersionLabel.Size = new System.Drawing.Size(44, 20);
             this.ProductVersionLabel.TabIndex = 2;
@@ -108,7 +111,7 @@
             this.Verson.BackColor = System.Drawing.Color.Transparent;
             this.Verson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Verson.ForeColor = System.Drawing.Color.White;
-            this.Verson.Location = new System.Drawing.Point(658, 396);
+            this.Verson.Location = new System.Drawing.Point(658, 406);
             this.Verson.Name = "Verson";
             this.Verson.Size = new System.Drawing.Size(75, 20);
             this.Verson.TabIndex = 3;
@@ -353,7 +356,7 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(431, 285);
+            this.label14.Location = new System.Drawing.Point(435, 335);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(119, 25);
             this.label14.TabIndex = 32;
@@ -362,7 +365,7 @@
             // checkBoxAutoRun
             // 
             this.checkBoxAutoRun.AutoSize = true;
-            this.checkBoxAutoRun.Location = new System.Drawing.Point(570, 290);
+            this.checkBoxAutoRun.Location = new System.Drawing.Point(574, 340);
             this.checkBoxAutoRun.Name = "checkBoxAutoRun";
             this.checkBoxAutoRun.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkBoxAutoRun.Size = new System.Drawing.Size(18, 17);
@@ -413,7 +416,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox6.Location = new System.Drawing.Point(390, 49);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(5, 345);
+            this.pictureBox6.Size = new System.Drawing.Size(5, 355);
             this.pictureBox6.TabIndex = 30;
             this.pictureBox6.TabStop = false;
             // 
@@ -503,13 +506,48 @@
             this.labelPathForUserSounds.TabIndex = 36;
             this.labelPathForUserSounds.Text = "path";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(418, 285);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(97, 29);
+            this.label16.TabIndex = 37;
+            this.label16.Text = "Другое";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(435, 375);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(60, 25);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Язык";
+            // 
+            // comboBoxLanguage
+            // 
+            this.comboBoxLanguage.FormattingEnabled = true;
+            this.comboBoxLanguage.Location = new System.Drawing.Point(550, 375);
+            this.comboBoxLanguage.Name = "comboBoxLanguage";
+            this.comboBoxLanguage.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxLanguage.TabIndex = 39;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(790, 425);
+            this.ClientSize = new System.Drawing.Size(790, 435);
             this.Controls.Add(this.labelPathForUserSounds);
+            this.Controls.Add(this.comboBoxLanguage);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.InfoButton);
             this.Controls.Add(this.pictureBox5);
@@ -606,5 +644,8 @@
         private System.Windows.Forms.PictureBox InfoButton;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label labelPathForUserSounds;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBoxLanguage;
     }
 }

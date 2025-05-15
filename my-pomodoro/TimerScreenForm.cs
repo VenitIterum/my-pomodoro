@@ -50,15 +50,14 @@ namespace my_pomodoro
             SettingsForm.SaveSettings += ReplayTimer;
             SettingsForm.SaveSettings += ChangeAplicationAutoRun;
 
-            SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
-            string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
-
-            if (saveAndLoadDataToFile.FileExists(FilesPaths.userSettingsFilePath))
+            if (File.Exists(FilesPaths.userSettingsFilePath))
             {
-                userTimeForWork = Convert.ToInt32(userDatas[0]) * SecondsInOneMinute;
-                userTimeForRest = Convert.ToInt32(userDatas[1]) * SecondsInOneMinute;
-                IsSoundAtivate = Convert.ToBoolean(userDatas[2]);
-                soundName = userDatas[3];
+                UserSettings userSettings = JsonReadWrite.Deserializer<UserSettings>(FilesPaths.userSettingsFilePath);
+                
+                userTimeForWork = Convert.ToInt32(userSettings.workTime) * SecondsInOneMinute;
+                userTimeForRest = Convert.ToInt32(userSettings.restTime) * SecondsInOneMinute;
+                IsSoundAtivate  = userSettings.isSoundActivate;
+                soundName       = userSettings.soundName;
             }
 
             LabelWorkStatus.Text = strWorkStatus;

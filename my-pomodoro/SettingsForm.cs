@@ -12,7 +12,6 @@ namespace my_pomodoro
     {
         public static event Action SaveSettings;
 
-        private SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
         private SoundPlayer soundPlayer = new SoundPlayer(FilesPaths.soundPath + TimerScreenForm.soundName + ".wav");
         private Point lastPoint = new Point();
         private bool IsSoundActivate = true;
@@ -26,28 +25,50 @@ namespace my_pomodoro
         
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
+            UserSettings userSettings;
+            //FOR LANGUAGE SETTINGS
+            //$"{FilesPaths.languagePath}{Localization.language}.json"
             string[] pathsSoundFiles = Directory.GetFiles(FilesPaths.soundPath, "*.wav");
+            string[] pathsLanguageFiles = Directory.GetFiles(FilesPaths.languagePath, "*.json");
             List<string> soundsList = new List<string>();
+            List<string> languagesList = new List<string>();
 
             foreach (string path in pathsSoundFiles)
             {
                 soundsList.Add(Path.GetFileNameWithoutExtension(path));
             }
 
-            if (saveAndLoadDataToFile.FileExists(FilesPaths.userSettingsFilePath))
+            foreach (string path in pathsLanguageFiles)
             {
-                textBoxWork.Text = userDatas[0];//load work time
-                textBoxRest.Text = userDatas[1];//load rest time
-                checkBoxSound.Checked = Convert.ToBoolean(userDatas[2]);
-                comboBoxSound.Text = userDatas[3];
+                languagesList.Add(Path.GetFileNameWithoutExtension(path));
             }
 
-            TimerScreenForm.soundName = comboBoxSound.Text;
+            if (File.Exists(FilesPaths.userSettingsFilePath))
+            {
+                userSettings = JsonReadWrite.Deserializer<UserSettings>(FilesPaths.userSettingsFilePath);
+
+                textBoxWork.Text        = userSettings.workTime.ToString();
+                textBoxRest.Text        = userSettings.restTime.ToString();
+                checkBoxSound.Checked   = userSettings.isSoundActivate;
+                comboBoxSound.Text      = userSettings.soundName;
+                comboBoxLanguage.Text   = userSettings.language;
+
+                TimerScreenForm.soundName = comboBoxSound.Text;
+                Localization.language = comboBoxLanguage.Text;
+            }
+            else
+            {
+                comboBoxLanguage.Text = Localization.language;
+            }
 
             if (pathsSoundFiles.Length != 0)
             {
                 comboBoxSound.Items.AddRange(soundsList.ToArray());
+            }
+
+            if (pathsLanguageFiles.Length != 0)
+            {
+                comboBoxLanguage.Items.AddRange(languagesList.ToArray());
             }
 
             checkBoxAutoRun.Checked = TimerScreenForm.IsAutoRunOn;
@@ -111,11 +132,11 @@ namespace my_pomodoro
         {
             if (textBoxWork.Text == "" || textBoxRest.Text == "")
             {
+                //TODO u can add two labels with red stars 
                 MessageBox.Show($"Пустые поля! Укажите значение в пределах от 1 до 60!");
                 return;
             }
 
-            //Not must have
             int workTime = 55;
             int restTime = 5;
 
@@ -130,49 +151,43 @@ namespace my_pomodoro
                 return;
             }
 
-            //Кажется бестолковая переменная, а неее. Это заделка на будущее
-            string messageText = "время";
-
-            if ((workTime < 1 || workTime > 60) || (restTime < 1 || restTime > 60))
+            if (workTime < 1 || workTime > 60)
             {
-                MessageBox.Show($"Пожалуйста, укажите {messageText} в пределах от 1 до 60!");
+                MessageBox.Show($"Пожалуйста, укажите рабочее время в пределах от 1 до 60!");
                 return;
             }
 
-            //TODO Доделать проверку, чтобы для кадого поля выводилась своя ошибка
-            //if(workTime < 1 || workTime > 60)
-            //{
-            //    messageText += "рабочее время";
-            //    MessageBox.Show($"Пожалуйста, укажите {messageText} в пределах от 1 до 60!");
-            //}
+            if (restTime < 1 || restTime > 60)
+            {
+                MessageBox.Show($"Пожалуйста, укажите время отдыха в пределах от 1 до 60!");
+                return;
+            }
 
-            //if (restTime < 1 || restTime > 60)
-            //{
-            //    messageText += "время отдыха";
-            //}
             soundPlayer.Stop();
 
-            string userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath);
-            string newUserDates = $"{workTime},{restTime},{IsSoundActivate},{TimerScreenForm.soundName}";
+            UserSettings userSettingsFromFile = JsonReadWrite.Deserializer<UserSettings>(FilesPaths.userSettingsFilePath);
+            UserSettings userSettingsNew = new UserSettings(workTime, restTime, IsSoundActivate, comboBoxSound.Text, comboBoxLanguage.Text);
 
-            if (userDatas == newUserDates && TimerScreenForm.IsAutoRunOn == checkBoxAutoRun.Checked)
+            if (userSettingsFromFile.Equals(userSettingsNew) && TimerScreenForm.IsAutoRunOn == checkBoxAutoRun.Checked)
+            {
                 this.Close();
+            }
             else
             {
                 DialogResult saveResult = MessageBox.Show("Сохранить текущие настройки?", "Предупреждение", MessageBoxButtons.YesNo);
-                
+
                 if (saveResult == DialogResult.Yes)
                 {
-                    TimerScreenForm.IsSoundAtivate = IsSoundActivate;
+                    TimerScreenForm.IsSoundAtivate  = IsSoundActivate;
                     TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
                     TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
-                    TimerScreenForm.IsAutoRunOn = checkBoxAutoRun.Checked; 
+                    TimerScreenForm.IsAutoRunOn     = checkBoxAutoRun.Checked;
 
-                    saveAndLoadDataToFile.UpdateTimesOfTimer(newUserDates);
+                    JsonReadWrite.Serializer<UserSettings>(FilesPaths.userSettingsFilePath, userSettingsNew);
                     if (TimerScreenForm.IsTimerActivate)
                     {
                         DialogResult timerOnResult = MessageBox.Show("Сбросить текущее время?", "Предупреждение", MessageBoxButtons.YesNo);
-                        
+
                         if (timerOnResult == DialogResult.Yes)
                         {
                             SaveSettings.Invoke();
