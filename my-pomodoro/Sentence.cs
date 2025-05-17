@@ -2,12 +2,12 @@
 {
     public struct Sentence
     {
-        public string key { get; }
-        public string text { get; }
+        public string id { get; set; }
+        public string text { get; set; }
 
-        public Sentence(string Key, string Text)
+        public Sentence(string Id, string Text)
         {
-            key = Key;
+            id = Id;
             text = Text;
         }
     }

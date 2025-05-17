@@ -1,4 +1,30 @@
-{
-  "key": "key.AppName",
-  "text": "My POMODORO"
-}
+[
+  { "id": "00", "text": "Focus" },
+  { "id": "01", "text": "Rest" },
+  { "id": "02", "text": "will end in" },
+  { "id": "03", "text": "paused" },
+  { "id": "04", "text": "OVERTIME!" },
+  { "id": "05", "text": "Current time" },
+  { "id": "06", "text": "End time" },
+  { "id": "07", "text": "Time settings" },
+  { "id": "08", "text": "Work" },
+  { "id": "09", "text": "Rest" },
+  { "id": "10", "text": "min." },
+  { "id": "11", "text": "Sound" },
+  { "id": "12", "text": "Melody" },
+  { "id": "13", "text": "Sound On/Off" },
+  { "id": "14", "text": "Custom .wav sounds can\nbe added to the \"Sounds\" folder at:" },
+  { "id": "15", "text": "Hotkeys" },
+  { "id": "16", "text": "Play/Pause" },
+  { "id": "17", "text": "Reset" },
+  { "id": "18", "text": "Change time" },
+  { "id": "19", "text": "Hide app" },
+  { "id": "20", "text": "<space>" },
+  { "id": "21", "text": "" },
+  { "id": "22", "text": "" },
+  { "id": "23", "text": "" },
+  { "id": "24", "text": "Other" },
+  { "id": "25", "text": "Autostart" },
+  { "id": "26", "text": "Language" },
+  { "id": "27", "text": "Version:" }
+]

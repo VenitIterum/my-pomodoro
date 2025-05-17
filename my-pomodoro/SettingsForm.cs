@@ -11,6 +11,7 @@ namespace my_pomodoro
     public partial class SettingsForm : Form
     {
         public static event Action SaveSettings;
+        public static event Action ReplayTimer;
 
         private SoundPlayer soundPlayer = new SoundPlayer(FilesPaths.soundPath + TimerScreenForm.soundName + ".wav");
         private Point lastPoint = new Point();
@@ -26,8 +27,6 @@ namespace my_pomodoro
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             UserSettings userSettings;
-            //FOR LANGUAGE SETTINGS
-            //$"{FilesPaths.languagePath}{Localization.language}.json"
             string[] pathsSoundFiles = Directory.GetFiles(FilesPaths.soundPath, "*.wav");
             string[] pathsLanguageFiles = Directory.GetFiles(FilesPaths.languagePath, "*.json");
             List<string> soundsList = new List<string>();
@@ -74,6 +73,35 @@ namespace my_pomodoro
             checkBoxAutoRun.Checked = TimerScreenForm.IsAutoRunOn;
 
             labelPathForUserSounds.Text = FilesPaths.soundPath;
+
+            LocalizeLabels();
+        }
+
+        private void LocalizeLabels()
+        {
+            labelSettingsTime.Text  = Localization.localizationDatas[7].text;
+            labelWork.Text          = Localization.localizationDatas[8].text;
+            labelRest.Text          = Localization.localizationDatas[9].text;
+            labelMinWork.Text       = Localization.localizationDatas[10].text;
+            labelMinRest.Text       = Localization.localizationDatas[10].text;
+
+            labelSoundSettings.Text     = Localization.localizationDatas[11].text;
+            labelSound.Text             = Localization.localizationDatas[12].text;
+            labelOnOffSound.Text        = Localization.localizationDatas[13].text;
+            labelInfoSoundUserPath.Text = Localization.localizationDatas[14].text;
+
+            labelInfoHotKey.Text    = Localization.localizationDatas[15].text;
+            labelStartStop.Text     = Localization.localizationDatas[16].text;
+            labelReset.Text         = Localization.localizationDatas[17].text;
+            labelChangeTimer.Text   = Localization.localizationDatas[18].text;
+            labelHiddenApp.Text     = Localization.localizationDatas[19].text;
+            labelSpaceKey.Text      = Localization.localizationDatas[20].text;
+
+            labelOther.Text     = Localization.localizationDatas[24].text;
+            labelAutoRun.Text   = Localization.localizationDatas[25].text;
+            labelLanguage.Text  = Localization.localizationDatas[26].text;
+
+            labelVerson.Text = Localization.localizationDatas[27].text;
         }
 
         #region === Settings form drag logic ===
@@ -178,6 +206,8 @@ namespace my_pomodoro
 
                 if (saveResult == DialogResult.Yes)
                 {
+                    Localization.Init($"{FilesPaths.languagePath}{userSettingsNew.language}.json");
+
                     TimerScreenForm.IsSoundAtivate  = IsSoundActivate;
                     TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
                     TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
@@ -190,13 +220,16 @@ namespace my_pomodoro
 
                         if (timerOnResult == DialogResult.Yes)
                         {
-                            SaveSettings.Invoke();
+                            //SaveSettings.Invoke();
+                            ReplayTimer.Invoke();
                         }
                     }
                     else
                     {
-                        SaveSettings.Invoke();
+                        //SaveSettings.Invoke();
+                        ReplayTimer.Invoke();
                     }
+                    SaveSettings.Invoke();
                     this.Close();
                 }
                 else

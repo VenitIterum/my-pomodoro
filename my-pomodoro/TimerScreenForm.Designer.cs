@@ -34,14 +34,14 @@
             this.ActualTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.ActualTimeLabel = new System.Windows.Forms.Label();
+            this.labelActualTime = new System.Windows.Forms.Label();
             this.SwapButton = new System.Windows.Forms.PictureBox();
             this.SettingsButton = new System.Windows.Forms.PictureBox();
             this.ReplayButton = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelEndTimer = new System.Windows.Forms.Label();
             this.EndTime = new System.Windows.Forms.Label();
             this.objectForMoveForm = new System.Windows.Forms.PictureBox();
             this.Stopwatch = new System.Windows.Forms.Timer(this.components);
@@ -89,17 +89,17 @@
             this.timer2.Enabled = true;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // ActualTimeLabel
+            // labelActualTime
             // 
-            this.ActualTimeLabel.AutoSize = true;
-            this.ActualTimeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ActualTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ActualTimeLabel.ForeColor = System.Drawing.Color.White;
-            this.ActualTimeLabel.Location = new System.Drawing.Point(245, 30);
-            this.ActualTimeLabel.Name = "ActualTimeLabel";
-            this.ActualTimeLabel.Size = new System.Drawing.Size(114, 18);
-            this.ActualTimeLabel.TabIndex = 10;
-            this.ActualTimeLabel.Text = "Текущее время";
+            this.labelActualTime.AutoSize = true;
+            this.labelActualTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelActualTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelActualTime.ForeColor = System.Drawing.Color.White;
+            this.labelActualTime.Location = new System.Drawing.Point(245, 30);
+            this.labelActualTime.Name = "labelActualTime";
+            this.labelActualTime.Size = new System.Drawing.Size(114, 18);
+            this.labelActualTime.TabIndex = 10;
+            this.labelActualTime.Text = "Текущее время";
             // 
             // SwapButton
             // 
@@ -191,17 +191,17 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDown);
             // 
-            // label1
+            // labelEndTimer
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(245, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 18);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Время окончания";
+            this.labelEndTimer.AutoSize = true;
+            this.labelEndTimer.BackColor = System.Drawing.Color.Transparent;
+            this.labelEndTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelEndTimer.ForeColor = System.Drawing.Color.White;
+            this.labelEndTimer.Location = new System.Drawing.Point(245, 90);
+            this.labelEndTimer.Name = "labelEndTimer";
+            this.labelEndTimer.Size = new System.Drawing.Size(131, 18);
+            this.labelEndTimer.TabIndex = 14;
+            this.labelEndTimer.Text = "Время окончания";
             // 
             // EndTime
             // 
@@ -255,9 +255,9 @@
             this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.objectForMoveForm);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelEndTimer);
             this.Controls.Add(this.EndTime);
-            this.Controls.Add(this.ActualTimeLabel);
+            this.Controls.Add(this.labelActualTime);
             this.Controls.Add(this.ActualTime);
             this.Controls.Add(this.Timer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -287,11 +287,11 @@
         private System.Windows.Forms.PictureBox PlayButton;
         private System.Windows.Forms.PictureBox ReplayButton;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Label ActualTimeLabel;
+        private System.Windows.Forms.Label labelActualTime;
         private System.Windows.Forms.PictureBox SettingsButton;
         private System.Windows.Forms.PictureBox SwapButton;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEndTimer;
         private System.Windows.Forms.Label EndTime;
         private System.Windows.Forms.PictureBox objectForMoveForm;
         private System.Windows.Forms.Timer timer1;
