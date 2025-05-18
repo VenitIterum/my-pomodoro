@@ -11,8 +11,17 @@ namespace my_pomodoro
     public partial class SettingsForm : Form
     {
         public static event Action SaveSettings;
+        public static event Action ReplayTimer;
+        public static event Action NotReplayTimer;
 
-        private SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
+        private string messegeBoxEmptyFields = "Пустые поля! Укажите значение в пределах от 1 до 60!";
+        private string messegeBoxkAllTime = "Некорректные значения! Укажите значение в пределах от 1 до 60!";
+        private string messegeBoxWorkTime = "Пожалуйста, укажите рабочее время в пределах от 1 до 60!";
+        private string messegeBoxRestTime = "Пожалуйста, укажите время отдыха в пределах от 1 до 60!";
+        private string messegeBoxNameMessegeBox = "Предупреждение";
+        private string messegeBoxSaveMessege = "Сохранить текущие настройки?";
+        private string messegeBoxResetTimer = "Сбросить текущее время?";
+
         private SoundPlayer soundPlayer = new SoundPlayer(FilesPaths.soundPath + TimerScreenForm.soundName + ".wav");
         private Point lastPoint = new Point();
         private bool IsSoundActivate = true;
@@ -26,33 +35,90 @@ namespace my_pomodoro
         
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
+            UserSettings userSettings;
             string[] pathsSoundFiles = Directory.GetFiles(FilesPaths.soundPath, "*.wav");
+            string[] pathsLanguageFiles = Directory.GetFiles(FilesPaths.languagePath, "*.json");
             List<string> soundsList = new List<string>();
+            List<string> languagesList = new List<string>();
 
             foreach (string path in pathsSoundFiles)
             {
                 soundsList.Add(Path.GetFileNameWithoutExtension(path));
             }
 
-            if (saveAndLoadDataToFile.FileExists(FilesPaths.userSettingsFilePath))
+            foreach (string path in pathsLanguageFiles)
             {
-                textBoxWork.Text = userDatas[0];//load work time
-                textBoxRest.Text = userDatas[1];//load rest time
-                checkBoxSound.Checked = Convert.ToBoolean(userDatas[2]);
-                comboBoxSound.Text = userDatas[3];
+                languagesList.Add(Path.GetFileNameWithoutExtension(path));
             }
 
-            TimerScreenForm.soundName = comboBoxSound.Text;
+            if (File.Exists(FilesPaths.userSettingsFilePath))
+            {
+                userSettings = JsonReadWrite.Deserializer<UserSettings>(FilesPaths.userSettingsFilePath);
+
+                textBoxWork.Text        = userSettings.workTime.ToString();
+                textBoxRest.Text        = userSettings.restTime.ToString();
+                checkBoxSound.Checked   = userSettings.isSoundActivate;
+                comboBoxSound.Text      = userSettings.soundName;
+                comboBoxLanguage.Text   = userSettings.language;
+
+                TimerScreenForm.soundName = comboBoxSound.Text;
+                Localization.language = comboBoxLanguage.Text;
+            }
+            else
+            {
+                comboBoxLanguage.Text = Localization.language;
+            }
 
             if (pathsSoundFiles.Length != 0)
             {
                 comboBoxSound.Items.AddRange(soundsList.ToArray());
             }
 
+            if (pathsLanguageFiles.Length != 0)
+            {
+                comboBoxLanguage.Items.AddRange(languagesList.ToArray());
+            }
+
             checkBoxAutoRun.Checked = TimerScreenForm.IsAutoRunOn;
 
             labelPathForUserSounds.Text = FilesPaths.soundPath;
+
+            LocalizeLabels();
+        }
+
+        private void LocalizeLabels()
+        {
+            labelSettingsTime.Text  = Localization.localizationDatas[7].text;
+            labelWork.Text          = Localization.localizationDatas[8].text;
+            labelRest.Text          = Localization.localizationDatas[9].text;
+            labelMinWork.Text       = Localization.localizationDatas[10].text;
+            labelMinRest.Text       = Localization.localizationDatas[10].text;
+
+            labelSoundSettings.Text     = Localization.localizationDatas[11].text;
+            labelSound.Text             = Localization.localizationDatas[12].text;
+            labelOnOffSound.Text        = Localization.localizationDatas[13].text;
+            labelInfoSoundUserPath.Text = Localization.localizationDatas[14].text;
+
+            labelInfoHotKey.Text    = Localization.localizationDatas[15].text;
+            labelStartStop.Text     = Localization.localizationDatas[16].text;
+            labelReset.Text         = Localization.localizationDatas[17].text;
+            labelChangeTimer.Text   = Localization.localizationDatas[18].text;
+            labelHiddenApp.Text     = Localization.localizationDatas[19].text;
+            labelSpaceKey.Text      = Localization.localizationDatas[20].text;
+
+            labelOther.Text     = Localization.localizationDatas[24].text;
+            labelAutoRun.Text   = Localization.localizationDatas[25].text;
+            labelLanguage.Text  = Localization.localizationDatas[26].text;
+
+            labelVerson.Text = Localization.localizationDatas[27].text;
+
+            messegeBoxEmptyFields       = Localization.localizationDatas[28].text;
+            messegeBoxkAllTime          = Localization.localizationDatas[29].text;
+            messegeBoxWorkTime          = Localization.localizationDatas[30].text;
+            messegeBoxRestTime          = Localization.localizationDatas[31].text;
+            messegeBoxNameMessegeBox    = Localization.localizationDatas[32].text;
+            messegeBoxSaveMessege       = Localization.localizationDatas[33].text;
+            messegeBoxResetTimer        = Localization.localizationDatas[34].text;
         }
 
         #region === Settings form drag logic ===
@@ -111,11 +177,11 @@ namespace my_pomodoro
         {
             if (textBoxWork.Text == "" || textBoxRest.Text == "")
             {
-                MessageBox.Show($"Пустые поля! Укажите значение в пределах от 1 до 60!");
+                //TODO You can add two labels with red stars 
+                MessageBox.Show(messegeBoxEmptyFields);
                 return;
             }
 
-            //Not must have
             int workTime = 55;
             int restTime = 5;
 
@@ -126,61 +192,63 @@ namespace my_pomodoro
             }
             catch
             {
-                MessageBox.Show($"Некорректные значения! Укажите значение в пределах от 1 до 60!");
+                MessageBox.Show(messegeBoxkAllTime);
                 return;
             }
 
-            //Кажется бестолковая переменная, а неее. Это заделка на будущее
-            string messageText = "время";
-
-            if ((workTime < 1 || workTime > 60) || (restTime < 1 || restTime > 60))
+            if (workTime < 1 || workTime > 60)
             {
-                MessageBox.Show($"Пожалуйста, укажите {messageText} в пределах от 1 до 60!");
+                MessageBox.Show(messegeBoxWorkTime);
                 return;
             }
 
-            //TODO Доделать проверку, чтобы для кадого поля выводилась своя ошибка
-            //if(workTime < 1 || workTime > 60)
-            //{
-            //    messageText += "рабочее время";
-            //    MessageBox.Show($"Пожалуйста, укажите {messageText} в пределах от 1 до 60!");
-            //}
+            if (restTime < 1 || restTime > 60)
+            {
+                MessageBox.Show(messegeBoxRestTime);
+                return;
+            }
 
-            //if (restTime < 1 || restTime > 60)
-            //{
-            //    messageText += "время отдыха";
-            //}
             soundPlayer.Stop();
 
-            string userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath);
-            string newUserDates = $"{workTime},{restTime},{IsSoundActivate},{TimerScreenForm.soundName}";
+            UserSettings userSettingsFromFile = JsonReadWrite.Deserializer<UserSettings>(FilesPaths.userSettingsFilePath);
+            UserSettings userSettingsNew = new UserSettings(workTime, restTime, IsSoundActivate, comboBoxSound.Text, comboBoxLanguage.Text);
 
-            if (userDatas == newUserDates && TimerScreenForm.IsAutoRunOn == checkBoxAutoRun.Checked)
+            if (userSettingsFromFile.Equals(userSettingsNew) && TimerScreenForm.IsAutoRunOn == checkBoxAutoRun.Checked)
+            {
                 this.Close();
+            }
             else
             {
-                DialogResult saveResult = MessageBox.Show("Сохранить текущие настройки?", "Предупреждение", MessageBoxButtons.YesNo);
-                
+                DialogResult saveResult = MessageBox.Show(messegeBoxSaveMessege, messegeBoxNameMessegeBox, MessageBoxButtons.YesNo);
+
                 if (saveResult == DialogResult.Yes)
                 {
-                    TimerScreenForm.IsSoundAtivate = IsSoundActivate;
+                    Localization.Init($"{FilesPaths.languagePath}{userSettingsNew.language}.json");
+
+                    TimerScreenForm.IsSoundAtivate  = IsSoundActivate;
                     TimerScreenForm.userTimeForWork = workTime * TimerScreenForm.SecondsInOneMinute;
                     TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
-                    TimerScreenForm.IsAutoRunOn = checkBoxAutoRun.Checked; 
+                    TimerScreenForm.IsAutoRunOn     = checkBoxAutoRun.Checked;
 
-                    saveAndLoadDataToFile.UpdateTimesOfTimer(newUserDates);
+                    SaveSettings.Invoke();
+                    JsonReadWrite.Serializer<UserSettings>(FilesPaths.userSettingsFilePath, userSettingsNew);
+                    
                     if (TimerScreenForm.IsTimerActivate)
                     {
-                        DialogResult timerOnResult = MessageBox.Show("Сбросить текущее время?", "Предупреждение", MessageBoxButtons.YesNo);
-                        
+                        DialogResult timerOnResult = MessageBox.Show(messegeBoxResetTimer, messegeBoxNameMessegeBox, MessageBoxButtons.YesNo);
+
                         if (timerOnResult == DialogResult.Yes)
                         {
-                            SaveSettings.Invoke();
+                            ReplayTimer.Invoke();
+                        }
+                        else
+                        {
+                            NotReplayTimer.Invoke();
                         }
                     }
                     else
                     {
-                        SaveSettings.Invoke();
+                        ReplayTimer.Invoke();
                     }
                     this.Close();
                 }

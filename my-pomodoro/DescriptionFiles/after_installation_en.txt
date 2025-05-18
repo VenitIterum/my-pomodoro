@@ -1,0 +1,5 @@
+The installation of My POMODORO is complete!
+
+You can launch the application from the desktop or from the Start menu.
+
+Thanks for the installation!

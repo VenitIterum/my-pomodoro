@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelSettingsTime = new System.Windows.Forms.Label();
             this.ProductVersionLabel = new System.Windows.Forms.Label();
-            this.Verson = new System.Windows.Forms.Label();
+            this.labelVerson = new System.Windows.Forms.Label();
             this.textBoxWork = new System.Windows.Forms.TextBox();
             this.textBoxRest = new System.Windows.Forms.TextBox();
             this.labelWork = new System.Windows.Forms.Label();
-            this.labelFree = new System.Windows.Forms.Label();
+            this.labelRest = new System.Windows.Forms.Label();
             this.labelMinWork = new System.Windows.Forms.Label();
-            this.labelMinFree = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelMinRest = new System.Windows.Forms.Label();
+            this.labelStartStop = new System.Windows.Forms.Label();
+            this.labelReset = new System.Windows.Forms.Label();
+            this.labelInfoHotKey = new System.Windows.Forms.Label();
+            this.labelChangeTimer = new System.Windows.Forms.Label();
+            this.labelHiddenApp = new System.Windows.Forms.Label();
+            this.labelSpaceKey = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBoxSound = new System.Windows.Forms.CheckBox();
             this.comboBoxSound = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelSound = new System.Windows.Forms.Label();
+            this.labelSoundSettings = new System.Windows.Forms.Label();
+            this.labelOnOffSound = new System.Windows.Forms.Label();
+            this.labelAutoRun = new System.Windows.Forms.Label();
             this.checkBoxAutoRun = new System.Windows.Forms.CheckBox();
             this.InfoButton = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -64,8 +64,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.labelInfoSoundUserPath = new System.Windows.Forms.Label();
             this.labelPathForUserSounds = new System.Windows.Forms.Label();
+            this.labelOther = new System.Windows.Forms.Label();
+            this.labelLanguage = new System.Windows.Forms.Label();
+            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.InfoButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSettingsButton)).BeginInit();
@@ -76,19 +82,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelSettingsTime
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Настройки времени";
+            this.labelSettingsTime.AutoSize = true;
+            this.labelSettingsTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelSettingsTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSettingsTime.ForeColor = System.Drawing.Color.White;
+            this.labelSettingsTime.Location = new System.Drawing.Point(16, 43);
+            this.labelSettingsTime.Name = "labelSettingsTime";
+            this.labelSettingsTime.Size = new System.Drawing.Size(246, 29);
+            this.labelSettingsTime.TabIndex = 1;
+            this.labelSettingsTime.Text = "Настройки времени";
             // 
             // ProductVersionLabel
             // 
@@ -96,28 +105,28 @@
             this.ProductVersionLabel.BackColor = System.Drawing.Color.Transparent;
             this.ProductVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ProductVersionLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductVersionLabel.Location = new System.Drawing.Point(734, 396);
+            this.ProductVersionLabel.Location = new System.Drawing.Point(734, 406);
             this.ProductVersionLabel.Name = "ProductVersionLabel";
             this.ProductVersionLabel.Size = new System.Drawing.Size(44, 20);
             this.ProductVersionLabel.TabIndex = 2;
             this.ProductVersionLabel.Text = "1.0.0";
             // 
-            // Verson
+            // labelVerson
             // 
-            this.Verson.AutoSize = true;
-            this.Verson.BackColor = System.Drawing.Color.Transparent;
-            this.Verson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Verson.ForeColor = System.Drawing.Color.White;
-            this.Verson.Location = new System.Drawing.Point(658, 396);
-            this.Verson.Name = "Verson";
-            this.Verson.Size = new System.Drawing.Size(75, 20);
-            this.Verson.TabIndex = 3;
-            this.Verson.Text = "Версия:";
+            this.labelVerson.AutoSize = true;
+            this.labelVerson.BackColor = System.Drawing.Color.Transparent;
+            this.labelVerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelVerson.ForeColor = System.Drawing.Color.White;
+            this.labelVerson.Location = new System.Drawing.Point(650, 406);
+            this.labelVerson.Name = "labelVerson";
+            this.labelVerson.Size = new System.Drawing.Size(75, 20);
+            this.labelVerson.TabIndex = 3;
+            this.labelVerson.Text = "Версия:";
             // 
             // textBoxWork
             // 
             this.textBoxWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxWork.Location = new System.Drawing.Point(113, 100);
+            this.textBoxWork.Location = new System.Drawing.Point(147, 97);
             this.textBoxWork.Name = "textBoxWork";
             this.textBoxWork.Size = new System.Drawing.Size(71, 30);
             this.textBoxWork.TabIndex = 4;
@@ -126,7 +135,7 @@
             // textBoxRest
             // 
             this.textBoxRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxRest.Location = new System.Drawing.Point(113, 140);
+            this.textBoxRest.Location = new System.Drawing.Point(147, 137);
             this.textBoxRest.Name = "textBoxRest";
             this.textBoxRest.Size = new System.Drawing.Size(71, 30);
             this.textBoxRest.TabIndex = 5;
@@ -144,17 +153,17 @@
             this.labelWork.TabIndex = 6;
             this.labelWork.Text = "Работа";
             // 
-            // labelFree
+            // labelRest
             // 
-            this.labelFree.AutoSize = true;
-            this.labelFree.BackColor = System.Drawing.Color.Transparent;
-            this.labelFree.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFree.ForeColor = System.Drawing.Color.White;
-            this.labelFree.Location = new System.Drawing.Point(29, 140);
-            this.labelFree.Name = "labelFree";
-            this.labelFree.Size = new System.Drawing.Size(75, 25);
-            this.labelFree.TabIndex = 7;
-            this.labelFree.Text = "Отдых";
+            this.labelRest.AutoSize = true;
+            this.labelRest.BackColor = System.Drawing.Color.Transparent;
+            this.labelRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRest.ForeColor = System.Drawing.Color.White;
+            this.labelRest.Location = new System.Drawing.Point(29, 140);
+            this.labelRest.Name = "labelRest";
+            this.labelRest.Size = new System.Drawing.Size(75, 25);
+            this.labelRest.TabIndex = 7;
+            this.labelRest.Text = "Отдых";
             // 
             // labelMinWork
             // 
@@ -162,105 +171,105 @@
             this.labelMinWork.BackColor = System.Drawing.Color.Transparent;
             this.labelMinWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelMinWork.ForeColor = System.Drawing.Color.White;
-            this.labelMinWork.Location = new System.Drawing.Point(190, 100);
+            this.labelMinWork.Location = new System.Drawing.Point(224, 100);
             this.labelMinWork.Name = "labelMinWork";
             this.labelMinWork.Size = new System.Drawing.Size(56, 25);
             this.labelMinWork.TabIndex = 8;
             this.labelMinWork.Text = "мин.";
             // 
-            // labelMinFree
+            // labelMinRest
             // 
-            this.labelMinFree.AutoSize = true;
-            this.labelMinFree.BackColor = System.Drawing.Color.Transparent;
-            this.labelMinFree.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMinFree.ForeColor = System.Drawing.Color.White;
-            this.labelMinFree.Location = new System.Drawing.Point(190, 140);
-            this.labelMinFree.Name = "labelMinFree";
-            this.labelMinFree.Size = new System.Drawing.Size(56, 25);
-            this.labelMinFree.TabIndex = 9;
-            this.labelMinFree.Text = "мин.";
+            this.labelMinRest.AutoSize = true;
+            this.labelMinRest.BackColor = System.Drawing.Color.Transparent;
+            this.labelMinRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelMinRest.ForeColor = System.Drawing.Color.White;
+            this.labelMinRest.Location = new System.Drawing.Point(224, 140);
+            this.labelMinRest.Name = "labelMinRest";
+            this.labelMinRest.Size = new System.Drawing.Size(56, 25);
+            this.labelMinRest.TabIndex = 9;
+            this.labelMinRest.Text = "мин.";
             // 
-            // label2
+            // labelStartStop
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(431, 93);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 25);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Play/Stop";
+            this.labelStartStop.AutoSize = true;
+            this.labelStartStop.BackColor = System.Drawing.Color.Transparent;
+            this.labelStartStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStartStop.ForeColor = System.Drawing.Color.White;
+            this.labelStartStop.Location = new System.Drawing.Point(431, 93);
+            this.labelStartStop.Name = "labelStartStop";
+            this.labelStartStop.Size = new System.Drawing.Size(97, 25);
+            this.labelStartStop.TabIndex = 10;
+            this.labelStartStop.Text = "Play/Stop";
             // 
-            // label3
+            // labelReset
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(431, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 25);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Сброс";
+            this.labelReset.AutoSize = true;
+            this.labelReset.BackColor = System.Drawing.Color.Transparent;
+            this.labelReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelReset.ForeColor = System.Drawing.Color.White;
+            this.labelReset.Location = new System.Drawing.Point(431, 133);
+            this.labelReset.Name = "labelReset";
+            this.labelReset.Size = new System.Drawing.Size(68, 25);
+            this.labelReset.TabIndex = 11;
+            this.labelReset.Text = "Сброс";
             // 
-            // label4
+            // labelInfoHotKey
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(418, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(219, 29);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Горячие клавиши";
+            this.labelInfoHotKey.AutoSize = true;
+            this.labelInfoHotKey.BackColor = System.Drawing.Color.Transparent;
+            this.labelInfoHotKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInfoHotKey.ForeColor = System.Drawing.Color.White;
+            this.labelInfoHotKey.Location = new System.Drawing.Point(418, 43);
+            this.labelInfoHotKey.Name = "labelInfoHotKey";
+            this.labelInfoHotKey.Size = new System.Drawing.Size(219, 29);
+            this.labelInfoHotKey.TabIndex = 12;
+            this.labelInfoHotKey.Text = "Горячие клавиши";
             // 
-            // label5
+            // labelChangeTimer
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(431, 173);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(161, 25);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Смена времени";
+            this.labelChangeTimer.AutoSize = true;
+            this.labelChangeTimer.BackColor = System.Drawing.Color.Transparent;
+            this.labelChangeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelChangeTimer.ForeColor = System.Drawing.Color.White;
+            this.labelChangeTimer.Location = new System.Drawing.Point(431, 173);
+            this.labelChangeTimer.Name = "labelChangeTimer";
+            this.labelChangeTimer.Size = new System.Drawing.Size(161, 25);
+            this.labelChangeTimer.TabIndex = 13;
+            this.labelChangeTimer.Text = "Смена времени";
             // 
-            // label6
+            // labelHiddenApp
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(431, 213);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 25);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Скрыть прил.";
+            this.labelHiddenApp.AutoSize = true;
+            this.labelHiddenApp.BackColor = System.Drawing.Color.Transparent;
+            this.labelHiddenApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelHiddenApp.ForeColor = System.Drawing.Color.White;
+            this.labelHiddenApp.Location = new System.Drawing.Point(431, 213);
+            this.labelHiddenApp.Name = "labelHiddenApp";
+            this.labelHiddenApp.Size = new System.Drawing.Size(137, 25);
+            this.labelHiddenApp.TabIndex = 14;
+            this.labelHiddenApp.Text = "Скрыть прил.";
             // 
-            // label7
+            // labelSpaceKey
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(635, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 25);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "<пробел>";
+            this.labelSpaceKey.AutoSize = true;
+            this.labelSpaceKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelSpaceKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSpaceKey.ForeColor = System.Drawing.Color.White;
+            this.labelSpaceKey.Location = new System.Drawing.Point(640, 95);
+            this.labelSpaceKey.Name = "labelSpaceKey";
+            this.labelSpaceKey.Size = new System.Drawing.Size(89, 20);
+            this.labelSpaceKey.TabIndex = 15;
+            this.labelSpaceKey.Text = "<пробел>";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(673, 133);
+            this.label8.Location = new System.Drawing.Point(675, 135);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 25);
+            this.label8.Size = new System.Drawing.Size(21, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "R";
             // 
@@ -268,11 +277,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(673, 173);
+            this.label9.Location = new System.Drawing.Point(675, 175);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 25);
+            this.label9.Size = new System.Drawing.Size(21, 20);
             this.label9.TabIndex = 17;
             this.label9.Text = "B";
             // 
@@ -280,11 +289,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(664, 213);
+            this.label10.Location = new System.Drawing.Point(668, 215);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 25);
+            this.label10.Size = new System.Drawing.Size(38, 20);
             this.label10.TabIndex = 18;
             this.label10.Text = "Esc";
             // 
@@ -311,58 +320,58 @@
             this.comboBoxSound.Text = "End Time Bell";
             this.comboBoxSound.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSound_SelectionChangeCommitted);
             // 
-            // label11
+            // labelSound
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(29, 245);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(96, 25);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Мелодия";
+            this.labelSound.AutoSize = true;
+            this.labelSound.BackColor = System.Drawing.Color.Transparent;
+            this.labelSound.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSound.ForeColor = System.Drawing.Color.White;
+            this.labelSound.Location = new System.Drawing.Point(29, 245);
+            this.labelSound.Name = "labelSound";
+            this.labelSound.Size = new System.Drawing.Size(96, 25);
+            this.labelSound.TabIndex = 23;
+            this.labelSound.Text = "Мелодия";
             // 
-            // label12
+            // labelSoundSettings
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(16, 193);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 29);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Звук";
+            this.labelSoundSettings.AutoSize = true;
+            this.labelSoundSettings.BackColor = System.Drawing.Color.Transparent;
+            this.labelSoundSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSoundSettings.ForeColor = System.Drawing.Color.White;
+            this.labelSoundSettings.Location = new System.Drawing.Point(16, 193);
+            this.labelSoundSettings.Name = "labelSoundSettings";
+            this.labelSoundSettings.Size = new System.Drawing.Size(68, 29);
+            this.labelSoundSettings.TabIndex = 26;
+            this.labelSoundSettings.Text = "Звук";
             // 
-            // label13
+            // labelOnOffSound
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(29, 285);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 25);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Вкл./Выкл. звук";
+            this.labelOnOffSound.AutoSize = true;
+            this.labelOnOffSound.BackColor = System.Drawing.Color.Transparent;
+            this.labelOnOffSound.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOnOffSound.ForeColor = System.Drawing.Color.White;
+            this.labelOnOffSound.Location = new System.Drawing.Point(29, 285);
+            this.labelOnOffSound.Name = "labelOnOffSound";
+            this.labelOnOffSound.Size = new System.Drawing.Size(155, 25);
+            this.labelOnOffSound.TabIndex = 27;
+            this.labelOnOffSound.Text = "Вкл./Выкл. звук";
             // 
-            // label14
+            // labelAutoRun
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(431, 285);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(119, 25);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "Автозапуск";
+            this.labelAutoRun.AutoSize = true;
+            this.labelAutoRun.BackColor = System.Drawing.Color.Transparent;
+            this.labelAutoRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelAutoRun.ForeColor = System.Drawing.Color.White;
+            this.labelAutoRun.Location = new System.Drawing.Point(435, 335);
+            this.labelAutoRun.Name = "labelAutoRun";
+            this.labelAutoRun.Size = new System.Drawing.Size(119, 25);
+            this.labelAutoRun.TabIndex = 32;
+            this.labelAutoRun.Text = "Автозапуск";
             // 
             // checkBoxAutoRun
             // 
             this.checkBoxAutoRun.AutoSize = true;
-            this.checkBoxAutoRun.Location = new System.Drawing.Point(570, 290);
+            this.checkBoxAutoRun.Location = new System.Drawing.Point(680, 340);
             this.checkBoxAutoRun.Name = "checkBoxAutoRun";
             this.checkBoxAutoRun.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkBoxAutoRun.Size = new System.Drawing.Size(18, 17);
@@ -413,7 +422,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox6.Location = new System.Drawing.Point(390, 49);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(5, 345);
+            this.pictureBox6.Size = new System.Drawing.Size(5, 355);
             this.pictureBox6.TabIndex = 30;
             this.pictureBox6.TabStop = false;
             // 
@@ -479,17 +488,17 @@
             this.pictureBox4.TabIndex = 22;
             this.pictureBox4.TabStop = false;
             // 
-            // label15
+            // labelInfoSoundUserPath
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(29, 325);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(262, 36);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "Свои звуки в формате .wav можно\r\nдобавлять в папку \"Sounds\" по пути:";
+            this.labelInfoSoundUserPath.AutoSize = true;
+            this.labelInfoSoundUserPath.BackColor = System.Drawing.Color.Transparent;
+            this.labelInfoSoundUserPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInfoSoundUserPath.ForeColor = System.Drawing.Color.White;
+            this.labelInfoSoundUserPath.Location = new System.Drawing.Point(29, 325);
+            this.labelInfoSoundUserPath.Name = "labelInfoSoundUserPath";
+            this.labelInfoSoundUserPath.Size = new System.Drawing.Size(262, 36);
+            this.labelInfoSoundUserPath.TabIndex = 35;
+            this.labelInfoSoundUserPath.Text = "Свои звуки в формате .wav можно\r\nдобавлять в папку \"Sounds\" по пути:";
             // 
             // labelPathForUserSounds
             // 
@@ -497,52 +506,117 @@
             this.labelPathForUserSounds.BackColor = System.Drawing.Color.Transparent;
             this.labelPathForUserSounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelPathForUserSounds.ForeColor = System.Drawing.Color.Turquoise;
-            this.labelPathForUserSounds.Location = new System.Drawing.Point(29, 365);
+            this.labelPathForUserSounds.Location = new System.Drawing.Point(29, 380);
             this.labelPathForUserSounds.Name = "labelPathForUserSounds";
             this.labelPathForUserSounds.Size = new System.Drawing.Size(36, 18);
             this.labelPathForUserSounds.TabIndex = 36;
             this.labelPathForUserSounds.Text = "path";
+            // 
+            // labelOther
+            // 
+            this.labelOther.AutoSize = true;
+            this.labelOther.BackColor = System.Drawing.Color.Transparent;
+            this.labelOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOther.ForeColor = System.Drawing.Color.White;
+            this.labelOther.Location = new System.Drawing.Point(418, 285);
+            this.labelOther.Name = "labelOther";
+            this.labelOther.Size = new System.Drawing.Size(97, 29);
+            this.labelOther.TabIndex = 37;
+            this.labelOther.Text = "Другое";
+            // 
+            // labelLanguage
+            // 
+            this.labelLanguage.AutoSize = true;
+            this.labelLanguage.BackColor = System.Drawing.Color.Transparent;
+            this.labelLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelLanguage.ForeColor = System.Drawing.Color.White;
+            this.labelLanguage.Location = new System.Drawing.Point(435, 375);
+            this.labelLanguage.Name = "labelLanguage";
+            this.labelLanguage.Size = new System.Drawing.Size(60, 25);
+            this.labelLanguage.TabIndex = 38;
+            this.labelLanguage.Text = "Язык";
+            // 
+            // comboBoxLanguage
+            // 
+            this.comboBoxLanguage.FormattingEnabled = true;
+            this.comboBoxLanguage.Location = new System.Drawing.Point(550, 375);
+            this.comboBoxLanguage.Name = "comboBoxLanguage";
+            this.comboBoxLanguage.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxLanguage.TabIndex = 39;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox7.Location = new System.Drawing.Point(0, 430);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(790, 5);
+            this.pictureBox7.TabIndex = 40;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox8.Location = new System.Drawing.Point(0, 20);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(5, 410);
+            this.pictureBox8.TabIndex = 41;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox9.Location = new System.Drawing.Point(785, 20);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(5, 410);
+            this.pictureBox9.TabIndex = 42;
+            this.pictureBox9.TabStop = false;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(790, 425);
+            this.ClientSize = new System.Drawing.Size(790, 435);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.labelPathForUserSounds);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.comboBoxLanguage);
+            this.Controls.Add(this.labelLanguage);
+            this.Controls.Add(this.labelOther);
+            this.Controls.Add(this.labelInfoSoundUserPath);
             this.Controls.Add(this.InfoButton);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.labelAutoRun);
             this.Controls.Add(this.checkBoxAutoRun);
             this.Controls.Add(this.CloseSettingsButton);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.objectForMoveForm);
             this.Controls.Add(this.PlaySoundButton);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.labelOnOffSound);
+            this.Controls.Add(this.labelSoundSettings);
             this.Controls.Add(this.comboBoxSound);
             this.Controls.Add(this.checkBoxSound);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.labelSound);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labelSpaceKey);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelMinFree);
+            this.Controls.Add(this.labelHiddenApp);
+            this.Controls.Add(this.labelChangeTimer);
+            this.Controls.Add(this.labelInfoHotKey);
+            this.Controls.Add(this.labelReset);
+            this.Controls.Add(this.labelStartStop);
+            this.Controls.Add(this.labelMinRest);
             this.Controls.Add(this.labelMinWork);
-            this.Controls.Add(this.labelFree);
+            this.Controls.Add(this.labelRest);
             this.Controls.Add(this.labelWork);
             this.Controls.Add(this.textBoxRest);
             this.Controls.Add(this.textBoxWork);
-            this.Controls.Add(this.Verson);
+            this.Controls.Add(this.labelVerson);
             this.Controls.Add(this.ProductVersionLabel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelSettingsTime);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox4);
@@ -562,6 +636,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,21 +647,21 @@
         #endregion
 
         private System.Windows.Forms.PictureBox CloseSettingsButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelSettingsTime;
         private System.Windows.Forms.Label ProductVersionLabel;
-        private System.Windows.Forms.Label Verson;
+        private System.Windows.Forms.Label labelVerson;
         private System.Windows.Forms.TextBox textBoxWork;
         private System.Windows.Forms.TextBox textBoxRest;
         private System.Windows.Forms.Label labelWork;
-        private System.Windows.Forms.Label labelFree;
+        private System.Windows.Forms.Label labelRest;
         private System.Windows.Forms.Label labelMinWork;
-        private System.Windows.Forms.Label labelMinFree;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelMinRest;
+        private System.Windows.Forms.Label labelStartStop;
+        private System.Windows.Forms.Label labelReset;
+        private System.Windows.Forms.Label labelInfoHotKey;
+        private System.Windows.Forms.Label labelChangeTimer;
+        private System.Windows.Forms.Label labelHiddenApp;
+        private System.Windows.Forms.Label labelSpaceKey;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -593,18 +670,24 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.ComboBox comboBoxSound;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelSound;
+        private System.Windows.Forms.Label labelSoundSettings;
         public System.Windows.Forms.CheckBox checkBoxSound;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelOnOffSound;
         private System.Windows.Forms.PictureBox PlaySoundButton;
         private System.Windows.Forms.PictureBox objectForMoveForm;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelAutoRun;
         public System.Windows.Forms.CheckBox checkBoxAutoRun;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox InfoButton;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelInfoSoundUserPath;
         private System.Windows.Forms.Label labelPathForUserSounds;
+        private System.Windows.Forms.Label labelOther;
+        private System.Windows.Forms.Label labelLanguage;
+        private System.Windows.Forms.ComboBox comboBoxLanguage;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }

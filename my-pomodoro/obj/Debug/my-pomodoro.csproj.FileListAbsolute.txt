@@ -14,3 +14,24 @@ D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\My POMODORO.application
 D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\My POMODORO.exe.manifest
 D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\My POMODORO.application
 D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my_pomodoro.AboutAppForm.resources
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Buffers.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.IO.Pipelines.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Memory.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Numerics.Vectors.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Text.Encodings.Web.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Text.Json.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.ValueTuple.dll
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Buffers.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.IO.Pipelines.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Memory.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Numerics.Vectors.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Text.Encodings.Web.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Text.Json.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Projects\my-pomodoro\my-pomodoro\bin\Debug\System.ValueTuple.xml
+D:\Projects\my-pomodoro\my-pomodoro\obj\Debug\my-pomod.876F713E.Up2Date

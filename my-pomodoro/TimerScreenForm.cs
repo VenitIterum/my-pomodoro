@@ -6,18 +6,14 @@ using System.Windows.Forms;
 using my_pomodoro.Properties;
 using System.IO;
 using Microsoft.Win32;
+using System.Drawing.Printing;
 
 namespace my_pomodoro
 {
     public partial class TimerScreenForm : Form
     {
         public const int SecondsInOneMinute = 60;
-
-        private const string strWorkStatus = "Фокус";
-        private const string strRestStatus = "Отдых";
-        private const string strStatusInWork = "закончится через";
-        private const string strStatusStop = "приостановлен";
-        private const string strStatusHold = "OVERTIME!!!";
+        
         private const string myAppName = "My POMODORO";
 
         public static int userTimeForWork = 55 * SecondsInOneMinute;
@@ -27,6 +23,11 @@ namespace my_pomodoro
         public static bool IsAutoRunOn = false;
         public static string soundName = "End Time Bell";
 
+        private string strWorkStatus = "Фокус";
+        private string strRestStatus = "Отдых";
+        private string strStatusInWork = "закончится через";
+        private string strStatusStop = "приостановлен";
+        private string strStatusHold = "OVERTIME!!!";
         private bool IsTimeStatusWork = true;
         private bool IsTimer1MustBlink = false;
         private SoundPlayer soundTimerEnd = new SoundPlayer($"{FilesPaths.soundPath}{soundName}.wav");
@@ -47,21 +48,38 @@ namespace my_pomodoro
 
         private void TimerScreenForm_Load(object sender, EventArgs e)
         {
-            SettingsForm.SaveSettings += ReplayTimer;
+            SettingsForm.SaveSettings += LocalizeLabels;
             SettingsForm.SaveSettings += ChangeAplicationAutoRun;
+            SettingsForm.ReplayTimer += ReplayTimer;
+            SettingsForm.NotReplayTimer += WorkStatusText;
 
-            SaveAndLoadDataToFile saveAndLoadDataToFile = new SaveAndLoadDataToFile();
-            string[] userDatas = saveAndLoadDataToFile.LoadDataFromFile(FilesPaths.userSettingsFilePath).Split(',');
+            string[] pathsLanguageFiles = Directory.GetFiles(FilesPaths.languagePath, "*.json");
+            bool IsLanguageExist = false;
 
-            if (saveAndLoadDataToFile.FileExists(FilesPaths.userSettingsFilePath))
+            if (File.Exists(FilesPaths.userSettingsFilePath))
             {
-                userTimeForWork = Convert.ToInt32(userDatas[0]) * SecondsInOneMinute;
-                userTimeForRest = Convert.ToInt32(userDatas[1]) * SecondsInOneMinute;
-                IsSoundAtivate = Convert.ToBoolean(userDatas[2]);
-                soundName = userDatas[3];
+                UserSettings userSettings = JsonReadWrite.Deserializer<UserSettings>(FilesPaths.userSettingsFilePath);
+
+                userTimeForWork = Convert.ToInt32(userSettings.workTime) * SecondsInOneMinute;
+                userTimeForRest = Convert.ToInt32(userSettings.restTime) * SecondsInOneMinute;
+                IsSoundAtivate = userSettings.isSoundActivate;
+                soundName = userSettings.soundName;
+                Localization.language = userSettings.language;
             }
 
-            LabelWorkStatus.Text = strWorkStatus;
+            foreach (string path in pathsLanguageFiles)
+            {
+                if (Localization.language == Path.GetFileNameWithoutExtension(path))
+                {
+                    IsLanguageExist = true;
+                    break;
+                }
+            }
+
+            if (!IsLanguageExist)
+            {
+                Localization.language = "English";
+            }
 
             timerSpan = TimeSpan.FromSeconds(userTimeForWork);
             timer1.Interval = 1000;
@@ -72,6 +90,23 @@ namespace my_pomodoro
             Timer.Text = timerSpan.ToString(@"mm\:ss");
 
             EndTime.Text = string.Format("{0:HH\\:mm}", DateTime.Now + TimeSpan.FromSeconds(userTimeForWork));
+
+            Localization.Init($"{FilesPaths.languagePath}{Localization.language}.json");
+            LocalizeLabels();
+
+            LabelWorkStatus.Text = strWorkStatus;
+        }
+
+        private void LocalizeLabels()
+        {
+            strWorkStatus   = Localization.localizationDatas[0].text;
+            strRestStatus   = Localization.localizationDatas[1].text;
+            strStatusInWork = Localization.localizationDatas[2].text;
+            strStatusStop   = Localization.localizationDatas[3].text;
+            strStatusHold   = Localization.localizationDatas[4].text;
+
+            labelActualTime.Text    = Localization.localizationDatas[5].text;
+            labelEndTimer.Text      = Localization.localizationDatas[6].text;
         }
 
         #region === Main form drag logic ===
@@ -210,6 +245,7 @@ namespace my_pomodoro
         {
             if (!Stopwatch.Enabled)
             {
+                //WorkStatusText();
                 if (!timer1.Enabled)
                 {
                     LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
@@ -228,6 +264,11 @@ namespace my_pomodoro
                 Timer.ForeColor = Color.White;
                 SwapTimer();
             }
+        }
+
+        private void WorkStatusText()
+        {
+            LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
         }
 
         private void StartTimer()
@@ -261,7 +302,6 @@ namespace my_pomodoro
             Timer.ForeColor = Color.White;
             PlayButton.Image = Resources.play_button_arrowhead;
             LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}");
-
 
             if (IsTimeStatusWork)
             {

@@ -31,6 +31,13 @@ namespace my_pomodoro
             {
                 yearsLabel.Text = $"{StartYear} - {todayDateTime.Year}";
             }
+
+            LocalizeLabels();
+        }
+
+        private void LocalizeLabels()
+        {
+            labelVersion.Text = Localization.localizationDatas[27].text;
         }
 
         #region === Settings form drag logic ===

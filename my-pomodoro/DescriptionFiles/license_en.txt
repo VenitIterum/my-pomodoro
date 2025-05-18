@@ -1,0 +1,36 @@
+Please read this license agreement carefully before using this software. By installing or using the application, you agree to the terms of this agreement.
+
+1. General provisions
+This license agreement (the "Agreement") is concluded between you (a natural or legal person) and Venit_Iterum (the "Developer") regarding the use of the My POMODORO Software (the "Program").
+
+2. License provision
+The Developer grants you a non-exclusive, non-transferable, limited license to install and use the Program solely for personal, non-commercial purposes, in accordance with the terms of this Agreement.
+
+3. Restrictions
+You have no right to:
+
+modify, decompile, disassemble, reverse engineer the Program;
+
+copy or distribute the Program, except as expressly permitted by this agreement.;
+
+use the Program for purposes that violate the law.
+
+4. Intellectual property
+All rights to the Program and accompanying materials, including, but not limited to, texts, graphics, sounds, and code, belong to the Developer and are protected by copyright laws and international agreements.
+
+5. Disclaimer of warranties
+The Program is provided "as is" without warranty of any kind, express or implied, including, but not limited to, warranties of fitness for a particular purpose or non-infringement.
+
+6. Limitation of liability
+The Developer is not responsible for any direct or indirect damages resulting from the use or inability to use the Program, even if he has been notified of the possibility of such damages.
+
+7. Privacy
+The program may collect anonymous usage data in order to improve quality. The use of the data is governed by a Privacy Policy published separately.
+
+8. Validity period
+This Agreement remains in force until its termination. You can terminate it at any time by deleting the Program. The Developer may terminate the Agreement if you violate its terms.
+
+9. Applicable law
+This Agreement is governed by the laws of the country of the Russian Federation.
+
+If you do not agree to the terms of this agreement, do not install or use the Program.
