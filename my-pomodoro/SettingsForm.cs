@@ -12,6 +12,15 @@ namespace my_pomodoro
     {
         public static event Action SaveSettings;
         public static event Action ReplayTimer;
+        public static event Action NotReplayTimer;
+
+        private string messegeBoxEmptyFields = "Пустые поля! Укажите значение в пределах от 1 до 60!";
+        private string messegeBoxkAllTime = "Некорректные значения! Укажите значение в пределах от 1 до 60!";
+        private string messegeBoxWorkTime = "Пожалуйста, укажите рабочее время в пределах от 1 до 60!";
+        private string messegeBoxRestTime = "Пожалуйста, укажите время отдыха в пределах от 1 до 60!";
+        private string messegeBoxNameMessegeBox = "Предупреждение";
+        private string messegeBoxSaveMessege = "Сохранить текущие настройки?";
+        private string messegeBoxResetTimer = "Сбросить текущее время?";
 
         private SoundPlayer soundPlayer = new SoundPlayer(FilesPaths.soundPath + TimerScreenForm.soundName + ".wav");
         private Point lastPoint = new Point();
@@ -102,6 +111,14 @@ namespace my_pomodoro
             labelLanguage.Text  = Localization.localizationDatas[26].text;
 
             labelVerson.Text = Localization.localizationDatas[27].text;
+
+            messegeBoxEmptyFields       = Localization.localizationDatas[28].text;
+            messegeBoxkAllTime          = Localization.localizationDatas[29].text;
+            messegeBoxWorkTime          = Localization.localizationDatas[30].text;
+            messegeBoxRestTime          = Localization.localizationDatas[31].text;
+            messegeBoxNameMessegeBox    = Localization.localizationDatas[32].text;
+            messegeBoxSaveMessege       = Localization.localizationDatas[33].text;
+            messegeBoxResetTimer        = Localization.localizationDatas[34].text;
         }
 
         #region === Settings form drag logic ===
@@ -160,8 +177,8 @@ namespace my_pomodoro
         {
             if (textBoxWork.Text == "" || textBoxRest.Text == "")
             {
-                //TODO u can add two labels with red stars 
-                MessageBox.Show($"Пустые поля! Укажите значение в пределах от 1 до 60!");
+                //TODO You can add two labels with red stars 
+                MessageBox.Show(messegeBoxEmptyFields);
                 return;
             }
 
@@ -175,19 +192,19 @@ namespace my_pomodoro
             }
             catch
             {
-                MessageBox.Show($"Некорректные значения! Укажите значение в пределах от 1 до 60!");
+                MessageBox.Show(messegeBoxkAllTime);
                 return;
             }
 
             if (workTime < 1 || workTime > 60)
             {
-                MessageBox.Show($"Пожалуйста, укажите рабочее время в пределах от 1 до 60!");
+                MessageBox.Show(messegeBoxWorkTime);
                 return;
             }
 
             if (restTime < 1 || restTime > 60)
             {
-                MessageBox.Show($"Пожалуйста, укажите время отдыха в пределах от 1 до 60!");
+                MessageBox.Show(messegeBoxRestTime);
                 return;
             }
 
@@ -202,7 +219,7 @@ namespace my_pomodoro
             }
             else
             {
-                DialogResult saveResult = MessageBox.Show("Сохранить текущие настройки?", "Предупреждение", MessageBoxButtons.YesNo);
+                DialogResult saveResult = MessageBox.Show(messegeBoxSaveMessege, messegeBoxNameMessegeBox, MessageBoxButtons.YesNo);
 
                 if (saveResult == DialogResult.Yes)
                 {
@@ -213,23 +230,27 @@ namespace my_pomodoro
                     TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
                     TimerScreenForm.IsAutoRunOn     = checkBoxAutoRun.Checked;
 
+
+                    SaveSettings.Invoke();
                     JsonReadWrite.Serializer<UserSettings>(FilesPaths.userSettingsFilePath, userSettingsNew);
+                    
                     if (TimerScreenForm.IsTimerActivate)
                     {
-                        DialogResult timerOnResult = MessageBox.Show("Сбросить текущее время?", "Предупреждение", MessageBoxButtons.YesNo);
+                        DialogResult timerOnResult = MessageBox.Show(messegeBoxResetTimer, messegeBoxNameMessegeBox, MessageBoxButtons.YesNo);
 
                         if (timerOnResult == DialogResult.Yes)
                         {
-                            //SaveSettings.Invoke();
                             ReplayTimer.Invoke();
+                        }
+                        else
+                        {
+                            NotReplayTimer.Invoke();
                         }
                     }
                     else
                     {
-                        //SaveSettings.Invoke();
                         ReplayTimer.Invoke();
                     }
-                    SaveSettings.Invoke();
                     this.Close();
                 }
                 else

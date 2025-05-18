@@ -50,9 +50,11 @@ namespace my_pomodoro
         {
             SettingsForm.SaveSettings += LocalizeLabels;
             SettingsForm.SaveSettings += ChangeAplicationAutoRun;
-            //SettingsForm.ReplayTimer += WorkStatusText;???
             SettingsForm.ReplayTimer += ReplayTimer;
-            //SettingsForm.SaveSettings += ReplayTimer;
+            SettingsForm.NotReplayTimer += WorkStatusText;
+
+            string[] pathsLanguageFiles = Directory.GetFiles(FilesPaths.languagePath, "*.json");
+            bool IsLanguageExist = false;
 
             if (File.Exists(FilesPaths.userSettingsFilePath))
             {
@@ -63,6 +65,20 @@ namespace my_pomodoro
                 IsSoundAtivate = userSettings.isSoundActivate;
                 soundName = userSettings.soundName;
                 Localization.language = userSettings.language;
+            }
+
+            foreach (string path in pathsLanguageFiles)
+            {
+                if (Localization.language == Path.GetFileNameWithoutExtension(path))
+                {
+                    IsLanguageExist = true;
+                    break;
+                }
+            }
+
+            if (!IsLanguageExist)
+            {
+                Localization.language = "English";
             }
 
             timerSpan = TimeSpan.FromSeconds(userTimeForWork);
@@ -229,17 +245,16 @@ namespace my_pomodoro
         {
             if (!Stopwatch.Enabled)
             {
+                //WorkStatusText();
                 if (!timer1.Enabled)
                 {
                     LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
-                    //WorkStatusText();
                     PlayButton.Image = Resources.pause;
                     StartTimer();
                 }
                 else
                 {
                     LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusStop}";
-                    //WorkStatusText();
                     PlayButton.Image = Resources.play_button_arrowhead;
                     StopTimer();
                 }
@@ -251,10 +266,10 @@ namespace my_pomodoro
             }
         }
 
-        //private void WorkStatusText()
-        //{
-        //    LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
-        //}
+        private void WorkStatusText()
+        {
+            LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
+        }
 
         private void StartTimer()
         {
@@ -287,7 +302,6 @@ namespace my_pomodoro
             Timer.ForeColor = Color.White;
             PlayButton.Image = Resources.play_button_arrowhead;
             LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}");
-
 
             if (IsTimeStatusWork)
             {

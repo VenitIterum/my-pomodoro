@@ -26,5 +26,12 @@
   { "id": "24", "text": "Other" },
   { "id": "25", "text": "Autostart" },
   { "id": "26", "text": "Language" },
-  { "id": "27", "text": "Version:" }
+  { "id": "27", "text": "Version:" },
+  { "id": "28", "text": "Empty fields! Please enter a value between 1 and 60!" },
+  { "id": "29", "text": "Invalid values! Please enter a value between 1 and 60!" },
+  { "id": "30", "text": "Please enter work time between 1 and 60!" },
+  { "id": "31", "text": "Please enter rest time between 1 and 60!" },
+  { "id": "32", "text": "Warning" },
+  { "id": "33", "text": "Save current settings?" },
+  { "id": "34", "text": "Reset current time?" }
 ]
