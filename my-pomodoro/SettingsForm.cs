@@ -230,7 +230,6 @@ namespace my_pomodoro
                     TimerScreenForm.userTimeForRest = restTime * TimerScreenForm.SecondsInOneMinute;
                     TimerScreenForm.IsAutoRunOn     = checkBoxAutoRun.Checked;
 
-
                     SaveSettings.Invoke();
                     JsonReadWrite.Serializer<UserSettings>(FilesPaths.userSettingsFilePath, userSettingsNew);
                     
