@@ -1,0 +1,5 @@
+Welcome to the My POMODORO Installation Wizard!
+
+This program will help you improve your productivity by using the Pomodoro technique.
+
+Click "Next" to continue the installation.
