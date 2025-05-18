@@ -13,6 +13,23 @@
 - ***Changed*** (Upgrade...)
 - ***Removed*** (Delete...)
 
+## [1.0.5] - 19.05.2025
+
+### Added
+
+- Added field for languages in settings form
+- Localization of the application
+
+### Fixed
+
+- Improve user settings save and load
+- Fix save logic, when autorun settings not applied
+- Fix save settings, when datas write across old datas
+
+### Changed
+
+- A small redesign (window frames have been added)
+
 ## [1.0.4] - 09.05.2025
 
 ### Added

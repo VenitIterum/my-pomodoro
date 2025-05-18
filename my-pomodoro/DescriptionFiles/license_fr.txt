@@ -1,0 +1,36 @@
+Veuillez lire attentivement ce contrat de licence avant d'utiliser ce logiciel. En installant ou en utilisant l'application, vous acceptez les termes du présent contrat.
+
+1. Dispositions générales
+Le présent contrat de licence (le "Contrat") est conclu entre vous (une personne physique ou morale) et Venit_Iterum (le "Développeur") concernant l'utilisation du Logiciel My POMODORO (le "Programme").
+
+2. Fourniture de licence
+Le Développeur vous accorde une licence non exclusive, non transférable et limitée pour installer et utiliser le Programme uniquement à des fins personnelles et non commerciales, conformément aux termes du présent Contrat.
+
+3. Restrictions
+Tu n'as pas le droit de:
+
+modifier, décompiler, désassembler, désosser le Programme;
+
+copier ou distribuer le Programme, sauf autorisation expresse du présent contrat.;
+
+utiliser le Programme à des fins qui violent la loi.
+
+4. Propriété intellectuelle
+Tous les droits sur le Programme et le matériel d'accompagnement, y compris, mais sans s'y limiter, les textes, graphiques, sons et codes, appartiennent au Développeur et sont protégés par les lois sur les droits d'auteur et les accords internationaux.
+
+5. Exclusion de garanties
+Le Programme est fourni "tel quel" sans garantie d'aucune sorte, expresse ou implicite, y compris, mais sans s'y limiter, les garanties d'adéquation à un usage particulier ou de non-contrefaçon.
+
+6. Limitation de responsabilité
+Le Développeur n'est pas responsable des dommages directs ou indirects résultant de l'utilisation ou de l'impossibilité d'utiliser le Programme, même s'il a été informé de la possibilité de tels dommages.
+
+7. Vie Privée
+Le programme peut collecter des données d'utilisation anonymes afin d'améliorer la qualité. L'utilisation des données est régie par une Politique de confidentialité publiée séparément.
+
+8. Période de validité
+Le présent Accord reste en vigueur jusqu'à sa résiliation. Vous pouvez y mettre fin à tout moment en supprimant le programme. Le Développeur peut résilier le Contrat si vous violez ses termes.
+
+9. Droit applicable
+Cet Accord est régi par les lois du pays de la Fédération de Russie.
+
+Si vous n'acceptez pas les termes du présent contrat, n'installez ni n'utilisez le Programme.

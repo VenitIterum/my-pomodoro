@@ -1,0 +1,36 @@
+Si prega di leggere attentamente il presente contratto di licenza prima di utilizzare questo software. Installando o utilizzando l'applicazione, l'utente accetta i termini del presente accordo.
+
+1. Disposizioni generali
+Il presente contratto di licenza (il "Contratto") è concluso tra l'utente (persona fisica o giuridica) e Venit_Iterum (lo "Sviluppatore") in merito all'utilizzo del Software My POMODORO (il "Programma").
+
+2. Fornitura della licenza
+Lo Sviluppatore concede all'utente una licenza non esclusiva, non trasferibile e limitata per installare e utilizzare il Programma esclusivamente per scopi personali e non commerciali, in conformità con i termini del presente Accordo.
+
+3. Restrizione
+Non hai il diritto di:
+
+modificare, decompilare, disassemblare, decodificare il programma;
+
+copiare o distribuire il Programma, salvo quanto espressamente consentito dal presente contratto.;
+
+utilizzare il Programma per scopi che violano la legge.
+
+4. Intellettuale
+Tutti i diritti sul Programma e sui materiali di accompagnamento, inclusi, ma non limitati a, testi, grafica, suoni e codice, appartengono allo Sviluppatore e sono protetti dalle leggi sul copyright e dagli accordi internazionali.
+
+5. Esclusione di garanzie
+Il Programma è fornito "così com'è" senza garanzie di alcun tipo, esplicite o implicite, incluse, ma non limitate a, garanzie di idoneità per uno scopo particolare o di non violazione.
+
+6. Limitazione di responsabilità
+Lo Sviluppatore non è responsabile per eventuali danni diretti o indiretti derivanti dall'uso o dall'impossibilità di utilizzare il Programma, anche se è stato informato della possibilità di tali danni.
+
+7. Privacy
+Il programma può raccogliere dati di utilizzo anonimi al fine di migliorare la qualità. L'utilizzo dei dati è regolato da una Informativa sulla privacy pubblicata separatamente.
+
+8. Periodo di validità
+Il presente Accordo rimane in vigore fino alla sua risoluzione. È possibile terminare in qualsiasi momento eliminando il programma. Lo Sviluppatore può risolvere il Contratto in caso di violazione dei suoi termini.
+
+9. Vigente
+Il presente Accordo è regolato dalle leggi del paese della Federazione Russa.
+
+Se non si accettano i termini del presente contratto, non installare o utilizzare il Programma.

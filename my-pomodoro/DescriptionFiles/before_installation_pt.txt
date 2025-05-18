@@ -1,0 +1,5 @@
+Bem-vindo ao Assistente de instalação do my POMODORO!
+
+Este programa irá ajudá-lo a melhorar sua produtividade usando a técnica Pomodoro.
+
+Clique em "Avançar" para continuar a instalação.

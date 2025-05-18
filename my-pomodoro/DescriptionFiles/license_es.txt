@@ -1,0 +1,36 @@
+Lea atentamente este acuerdo de licencia antes de utilizar este software. Al instalar o utilizar la aplicación, usted acepta los términos de este acuerdo.
+
+1. Disposiciones generales
+Este acuerdo de licencia (el "Acuerdo") se celebra entre usted (una persona física o jurídica) y Venit_Iterum (el "Desarrollador") con respecto al uso del Software My POMODORO (el "Programa").
+
+2. Provisión de licencia
+El Desarrollador le otorga una licencia limitada, no exclusiva e intransferible para instalar y utilizar el Programa únicamente con fines personales y no comerciales, de conformidad con los términos de este Acuerdo.
+
+3. Restricciones
+Usted no tiene derecho a:
+
+modifique, descompile, desmonte, realice ingeniería inversa del Programa;
+
+copiar o distribuir el Programa, excepto según lo expresamente permitido por este acuerdo.;
+
+utilizar el Programa con fines que violen la ley.
+
+4. Propiedad intelectual
+Todos los derechos del Programa y los materiales que lo acompañan, incluidos, entre otros, textos, gráficos, sonidos y código, pertenecen al Desarrollador y están protegidos por las leyes de derechos de autor y los acuerdos internacionales.
+
+5. Exención de garantías
+El Programa se proporciona "tal cual" sin garantía de ningún tipo, expresa o implícita, incluidas, entre otras, garantías de idoneidad para un propósito particular o de no infracción.
+
+6. Limitación de responsabilidad
+El Desarrollador no es responsable de ningún daño directo o indirecto que resulte del uso o la imposibilidad de usar el Programa, incluso si se le ha notificado la posibilidad de tales daños.
+
+7. Privacidad
+El programa puede recopilar datos de uso anónimos para mejorar la calidad. El uso de los datos se rige por una Política de privacidad publicada por separado.
+
+8. Período de validez
+Este Acuerdo permanecerá en vigor hasta su terminación. Puede terminarlo en cualquier momento eliminando el Programa. El Desarrollador puede rescindir el Acuerdo si violas sus términos.
+
+9. Ley aplicable
+Este Acuerdo se rige por las leyes del país de la Federación Rusa.
+
+Si no está de acuerdo con los términos de este acuerdo, no instale ni utilice el Programa.

@@ -1,0 +1,36 @@
+Bitte lesen Sie diese Lizenzvereinbarung sorgfältig durch, bevor Sie diese Software verwenden. Durch die Installation oder Verwendung der Anwendung stimmen Sie den Bedingungen dieser Vereinbarung zu.
+
+1. Allgemeine Bestimmungen
+Diese Lizenzvereinbarung (die "Vereinbarung") wird zwischen Ihnen (einer natürlichen oder juristischen Person) und Venit_Iterum (dem "Entwickler") in Bezug auf die Nutzung der My POMODORO-Software (das "Programm") geschlossen.
+
+2. Lizenzbereitstellung
+Der Entwickler gewährt Ihnen eine nicht ausschließliche, nicht übertragbare, beschränkte Lizenz zur Installation und Nutzung des Programms ausschließlich für persönliche, nichtkommerzielle Zwecke gemäß den Bestimmungen dieser Vereinbarung.
+
+3. Zugangsbeschränkungen
+Du hast kein Recht dazu:
+
+modifizieren, dekompilieren, disassemblieren, Reverse Engineering des Programms;
+
+kopieren oder verteilen Sie das Programm, sofern dies nicht ausdrücklich in dieser Vereinbarung gestattet ist.;
+
+verwenden Sie das Programm für Zwecke, die gegen das Gesetz verstoßen.
+
+4. Geistiges Eigentum
+Alle Rechte an dem Programm und den Begleitmaterialien, einschließlich, aber nicht beschränkt auf Texte, Grafiken, Sounds und Code, gehören dem Entwickler und sind durch Urheberrechtsgesetze und internationale Abkommen geschützt.
+
+5. Haftungsausschluss
+Das Programm wird "wie besehen" ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt, einschließlich, aber nicht beschränkt auf Garantien der Eignung für einen bestimmten Zweck oder der Nichtverletzung von Rechten Dritter.
+
+6. Haftungsbeschränkung
+Der Entwickler haftet nicht für direkte oder indirekte Schäden, die sich aus der Nutzung oder Unmöglichkeit der Nutzung des Programms ergeben, auch wenn er auf die Möglichkeit solcher Schäden hingewiesen wurde.
+
+7. Datenschutz
+Das Programm kann anonyme Nutzungsdaten sammeln, um die Qualität zu verbessern. Die Verwendung der Daten wird durch eine separat veröffentlichte Datenschutzerklärung geregelt.
+
+8. Gültigkeitsdauer
+Diese Vereinbarung bleibt bis zu ihrer Kündigung in Kraft. Sie können es jederzeit beenden, indem Sie das Programm löschen. Der Entwickler kann die Vereinbarung kündigen, wenn Sie gegen ihre Bedingungen verstoßen.
+
+9. Anwendbares Recht
+Diese Vereinbarung unterliegt den Gesetzen des Landes der Russischen Föderation.
+
+Wenn Sie den Bedingungen dieser Vereinbarung nicht zustimmen, installieren oder verwenden Sie das Programm nicht.

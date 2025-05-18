@@ -1,0 +1,36 @@
+Leia atentamente este contrato de licença antes de utilizar este software. Ao instalar ou usar o aplicativo, você concorda com os termos deste contrato.
+
+1. Disposições gerais
+Este contrato de licença (o "contrato") é celebrado entre você (uma pessoa singular ou colectiva) e Venit_Iterum (o "desenvolvedor") em relação ao uso do Software my POMODORO (o "programa").
+
+2. Concessão de licenças
+O desenvolvedor concede a você uma licença não exclusiva, intransferível e limitada para instalar e usar o programa exclusivamente para fins pessoais e não comerciais, de acordo com os termos deste contrato.
+
+3. Restrições
+Não tem o direito de:
+
+modificar, descompilar, desmontar, fazer engenharia reversa do programa;
+
+copiar ou distribuir o programa, exceto conforme expressamente permitido por este Contrato.;
+
+use o programa para fins que violem a lei.
+
+4. Propriedade intelectual
+Todos os direitos sobre o programa e os materiais que o acompanham, incluindo, mas não se limitando a, textos, gráficos, sons e Código, pertencem ao Desenvolvedor e estão protegidos por leis de direitos autorais e acordos internacionais.
+
+5. Isenção de garantias
+O programa é fornecido" tal como está " sem qualquer tipo de garantia, expressa ou implícita, incluindo, mas não se limitando a, garantias de adequação a um determinado fim ou não violação.
+
+6. Limitação de responsabilidade
+O desenvolvedor não é responsável por quaisquer danos diretos ou indiretos resultantes do uso ou incapacidade de usar o programa, mesmo que tenha sido notificado da possibilidade de tais danos.
+
+7. Privacidade
+O programa pode recolher dados de Utilização anónimos para melhorar a qualidade. A utilização dos dados é regida por uma política de Privacidade publicada separadamente.
+
+8. Período de validade
+O presente Acordo mantém-se em vigor até à sua cessação. Você pode encerrá-lo a qualquer momento, excluindo o programa. O desenvolvedor pode rescindir o contrato se você violar seus termos.
+
+9. Legislação aplicável
+Este acordo é regido pelas leis do país da Federação Russa.
+
+Se você não concordar com os termos deste contrato, não instale ou use o programa.

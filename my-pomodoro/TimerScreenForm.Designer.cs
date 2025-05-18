@@ -165,7 +165,7 @@
             this.PlayButton.InitialImage = null;
             this.PlayButton.Location = new System.Drawing.Point(405, 20);
             this.PlayButton.Name = "PlayButton";
-            this.PlayButton.Size = new System.Drawing.Size(135, 135);
+            this.PlayButton.Size = new System.Drawing.Size(130, 130);
             this.PlayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PlayButton.TabIndex = 7;
             this.PlayButton.TabStop = false;
@@ -281,13 +281,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(540, 155);
+            this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.LabelWorkStatus);
             this.Controls.Add(this.ReplayButton);
             this.Controls.Add(this.SwapButton);
-            this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.objectForMoveForm);
