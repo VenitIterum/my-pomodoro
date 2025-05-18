@@ -21,7 +21,7 @@ namespace my_pomodoro
                 WriteIndented = true
             };
 
-            using (FileStream file = new FileStream(path, FileMode.OpenOrCreate))
+            using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
             {
                 JsonSerializer.SerializeAsync<T>(file, value, options);
             }
