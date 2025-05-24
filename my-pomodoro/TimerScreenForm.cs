@@ -50,6 +50,7 @@ namespace my_pomodoro
         {
             SettingsForm.SaveSettings += LocalizeLabels;
             SettingsForm.SaveSettings += ChangeAplicationAutoRun;
+            SettingsForm.SaveSettings += SetSound;
             SettingsForm.ReplayTimer += ReplayTimer;
             SettingsForm.NotReplayTimer += WorkStatusText;
 
@@ -66,6 +67,8 @@ namespace my_pomodoro
                 soundName = userSettings.soundName;
                 Localization.language = userSettings.language;
             }
+
+            soundTimerEnd = new SoundPlayer(FilesPaths.soundPath + soundName + ".wav");
 
             foreach (string path in pathsLanguageFiles)
             {
@@ -245,7 +248,6 @@ namespace my_pomodoro
         {
             if (!Stopwatch.Enabled)
             {
-                //WorkStatusText();
                 if (!timer1.Enabled)
                 {
                     LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
@@ -264,11 +266,6 @@ namespace my_pomodoro
                 Timer.ForeColor = Color.White;
                 SwapTimer();
             }
-        }
-
-        private void WorkStatusText()
-        {
-            LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
         }
 
         private void StartTimer()
@@ -372,8 +369,6 @@ namespace my_pomodoro
                 this.Visible = true;
                 this.Activate();
 
-                //Следующая строчка максимально костыльная. Каждый раз присваивать один и тот же путь до звука такое себе
-                soundTimerEnd = new SoundPlayer(FilesPaths.soundPath + soundName + ".wav");
                 if (File.Exists(FilesPaths.soundPath + soundName + ".wav") && IsSoundAtivate) soundTimerEnd.Play();
             }
         }
@@ -415,6 +410,16 @@ namespace my_pomodoro
                 rkApp.DeleteValue(myAppName, false);
         }
 
+        private void WorkStatusText()
+        {
+            LabelWorkStatus.Text = (IsTimeStatusWork ? $"{strWorkStatus}" : $"{strRestStatus}") + $" {strStatusInWork}";
+        }
+
+        private void SetSound()
+        {
+            soundTimerEnd = new SoundPlayer(FilesPaths.soundPath + soundName + ".wav");
+        }
+
         private void notifyIcon1_MouseDown(object sender, MouseEventArgs e)
         {
             this.Visible = true;
@@ -428,8 +433,12 @@ namespace my_pomodoro
 
         private void TimerScreenForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            SettingsForm.SaveSettings -= ReplayTimer;
+            SettingsForm.SaveSettings -= LocalizeLabels;
             SettingsForm.SaveSettings -= ChangeAplicationAutoRun;
+            SettingsForm.SaveSettings -= SetSound;
+            SettingsForm.ReplayTimer -= ReplayTimer;
+            SettingsForm.NotReplayTimer -= WorkStatusText;
+
         }
     }
 }
